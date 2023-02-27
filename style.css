@@ -1,0 +1,46 @@
+/* 
+Paleta kolorów:
+#EAE7DC
+#D8C3A5
+#8E8D8A
+#E98074
+#E85A4F
+*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #f7f7f7;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  padding: 20px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+.logo{
+  font-weight: bolder;
+  font-size: 25px;
+  color: #333;
+}
+.navbar ul{
+  list-style: none;
+}
+.navbar ul li{
+  position: relative;
+  float: left;
+}
+.navbar ul li a {
+  font-size: 20px;
+  padding: 20px;
+  color: #333;
+  display: block;
+  
+}
