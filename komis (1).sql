@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 15 Lut 2023, 16:56
+-- Czas generowania: 22 Lut 2023, 16:42
 -- Wersja serwera: 10.4.24-MariaDB
 -- Wersja PHP: 8.1.6
 
@@ -421,6 +421,19 @@ INSERT INTO `model` (`id_modelu`, `id_marki`, `nazwa`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `opinie`
+--
+
+CREATE TABLE `opinie` (
+  `id_opini` int(3) NOT NULL,
+  `id_uzytkownika` int(11) NOT NULL,
+  `tresc` text NOT NULL,
+  `ocena` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `paliwo`
 --
 
@@ -544,6 +557,22 @@ INSERT INTO `stan` (`id_stanu`, `stan_auta`) VALUES
 (1, 'Nieuszkodz'),
 (2, 'Uszkodzony');
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `uzytkownicy`
+--
+
+CREATE TABLE `uzytkownicy` (
+  `id_uzytkownika` int(3) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `login` varchar(50) NOT NULL,
+  `haslo` varchar(50) NOT NULL,
+  `imie` varchar(50) NOT NULL,
+  `nazwisko` varchar(50) NOT NULL,
+  `telefon` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -566,6 +595,13 @@ ALTER TABLE `marka`
 ALTER TABLE `model`
   ADD PRIMARY KEY (`id_modelu`),
   ADD KEY `id_marki` (`id_marki`);
+
+--
+-- Indeksy dla tabeli `opinie`
+--
+ALTER TABLE `opinie`
+  ADD PRIMARY KEY (`id_opini`),
+  ADD KEY `nazwa` (`id_uzytkownika`);
 
 --
 -- Indeksy dla tabeli `paliwo`
@@ -598,6 +634,12 @@ ALTER TABLE `stan`
   ADD PRIMARY KEY (`id_stanu`);
 
 --
+-- Indeksy dla tabeli `uzytkownicy`
+--
+ALTER TABLE `uzytkownicy`
+  ADD PRIMARY KEY (`id_uzytkownika`);
+
+--
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
 
@@ -618,6 +660,12 @@ ALTER TABLE `marka`
 --
 ALTER TABLE `model`
   MODIFY `id_modelu` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=318;
+
+--
+-- AUTO_INCREMENT dla tabeli `opinie`
+--
+ALTER TABLE `opinie`
+  MODIFY `id_opini` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `paliwo`
@@ -644,6 +692,12 @@ ALTER TABLE `stan`
   MODIFY `id_stanu` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT dla tabeli `uzytkownicy`
+--
+ALTER TABLE `uzytkownicy`
+  MODIFY `id_uzytkownika` int(3) NOT NULL AUTO_INCREMENT;
+
+--
 -- Ograniczenia dla zrzutów tabel
 --
 
@@ -652,6 +706,12 @@ ALTER TABLE `stan`
 --
 ALTER TABLE `model`
   ADD CONSTRAINT `model_ibfk_1` FOREIGN KEY (`id_marki`) REFERENCES `marka` (`id_marki`);
+
+--
+-- Ograniczenia dla tabeli `opinie`
+--
+ALTER TABLE `opinie`
+  ADD CONSTRAINT `nazwa` FOREIGN KEY (`id_uzytkownika`) REFERENCES `uzytkownicy` (`id_uzytkownika`);
 
 --
 -- Ograniczenia dla tabeli `samochody`
