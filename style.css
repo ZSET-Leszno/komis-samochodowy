@@ -6,41 +6,126 @@ Paleta kolorów:
 #E98074
 #E85A4F
 */
+@font-face {
+  font-family: Poetsen;
+  src: url(PoetsenOne-Regular.ttf);
+}
+@font-face {
+  font-family: LOGO;
+  src: url(hidayatullah\ DEMO.ttf);
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
 }
-nav{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #f7f7f7;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-  padding: 20px 10%;
+.navbar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 1000;
-}
-.logo{
-  font-weight: bolder;
-  font-size: 25px;
-  color: #333;
-}
-.navbar ul{
-  list-style: none;
-}
-.navbar ul li{
   position: relative;
-  float: left;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(223, 15, 50);
+  color: white;
+  width: 90%;
+  margin: auto;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-family: Poetsen;
 }
-.navbar ul li a {
-  font-size: 20px;
-  padding: 20px;
-  color: #333;
+
+.brand-title {
+  font-size: 1.5rem;
+  margin: .5rem;  
+  padding: 10px;
+  font-family: LOGO;
+  margin-left: 5%;
+}
+
+.navbar-links {
+  height: 100%;
+}
+
+.navbar-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0px;
+}
+
+.navbar-links li {
+  list-style: none;
+  padding: 10px;
+}
+
+.navbar-links li a {
   display: block;
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+}
+.navbar-links li:hover {
+  background-color: rgb(190, 48, 71);  
+}
+.navbar-links li:last-child:hover {
+  background-color: rgb(190, 48, 71);
+  border-bottom-right-radius: 20px;
   
+}
+
+.toggle-button {
+  position: absolute;
+  top: 1.9rem;
+  right: 1.2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 1050px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .toggle-button {
+      display: flex;
+  }
+
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+  .navbar-links li:last-child:hover {
+    background-color: rgb(190, 48, 71);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
 }
