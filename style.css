@@ -6,11 +6,11 @@
     font-family: LOGO;
     src: url(hidayatullah\ DEMO.ttf);
   }
-/*ZMNIENNE*/
+/*-----------------------------zmienne-----------------------------------------*/
 :root{
-    --background:rgb(192, 31, 58) ;
+    --background:rgb(54, 54, 54) ;
     --navfont: rgb(255, 255, 255);
-    --navhover: rgb(185, 182, 166);
+    --navhover: rgb(196, 180, 91);
 }
 
 
@@ -19,10 +19,11 @@ box-sizing: border-box;
 
 }
 body{
-    background-color: #f7f7f7;
+    background-color: rgb(243,243,243);
+    margin: 0;
   }
 
-/*nawigacja*/
+/*-----------------------------nawigacja-----------------------------------------*/
 header{
     background-color: var(--background);
     text-align: center;
@@ -34,7 +35,7 @@ header{
     font-family: Poetsen;
 }
 .logo{
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     font-family: LOGO;
     color: var(--navfont);
 }
@@ -62,7 +63,7 @@ nav li{
 nav a{
     color: var(--navfont);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     opacity: 0;
     transition: opacity 90ms ease-in-out 90ms;
 }
@@ -83,6 +84,7 @@ nav a:hover{
     height: 100%;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .nav-toggle-label span,
 .nav-toggle-label span::before,
@@ -144,7 +146,7 @@ nav a:hover{
     nav a::before{
         content: "";
         display: block;
-        height: 5px;
+        height: 3px;
         border-radius: 50px;
         background: var(--navhover);
         position: absolute;
@@ -159,4 +161,20 @@ nav a:hover{
         transform: scale(1,1);
     }
 
+}
+/*-----------------------------main-----------------------------------------*/
+.main{
+    width: 90%;
+    margin: auto;
+    background-color: white;
+
+    border-radius: 30px;
+    height: 100vh;
+}
+footer{
+    background: var(--background);
+    height: 20vh;
+    bottom: 0;
+    width: 100%;
+    margin-top: 10vh;
 }
