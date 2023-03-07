@@ -29,7 +29,7 @@
                 </div>
 
                 <button type="submit" class="przycisk">ZAREJESTRUJ SIĘ</button><br><br>
-                <p>Masz już konto? <a href="rejestracja.php">Zaloguj się</a></p>
+                <p>Masz już konto? <a href="logowanie.php">Zaloguj się</a></p>
             </form>
         </div>
     </div>
