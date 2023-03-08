@@ -223,8 +223,9 @@ nav a:hover{
   width: 70%;
   margin: auto;
   font-family: Poetsen;
-  margin-top: 7vh;
+  margin-top: 0;
   text-align: center;
+  padding: 10%;
 }
 .przycisk{
   width: 20vw;
@@ -234,7 +235,7 @@ nav a:hover{
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 5vh;
+  margin-top: 4vh;
 }
 .przycisk:hover{
   background-color: rgb(161, 149, 77);
@@ -252,6 +253,34 @@ nav a:hover{
   color: grey;
   text-align: left;
   margin-top: 2vh;
+}
+
+
+@media only screen and (max-width: 1200px)  {
+  .logo-foto{
+    width: 0%;
+  }
+  .logo-form{
+    width: 100%;
+    margin:auto;
+    text-align: center;
+  }
+  .przycisk{
+    width: 30vw;
+  }
+}
+@media only screen and (max-width: 720px)  {
+  .przycisk{
+    width: 40vw;
+  }
+  .logo-form h3{
+    text-align: center;
+    font-family: Poetsen;
+    font-size: 1.7rem;
+  }
+  .logo-form form{
+    margin-top: 0;
+  }
 }
 /*-----------------------------main-----------------------------------------*/
 .main{

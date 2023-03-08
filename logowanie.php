@@ -17,14 +17,17 @@
 
         </div>
         <div class="logo-form">
-            <h3>Zaloguj się</h3>
-            <form>
 
+
+            <form>
+            <h3>Zaloguj się</h3>
                 <input class="log-input" id="login" placeholder="Login"><br><br>
                 <input type="password" class="log-input" id="haslo"placeholder="Hasło"><br>
                 <button type="submit" class="przycisk">ZALOGUJ SIĘ</button><br><br>
                 <p>Nie masz u nas konta? <a href="rejestracja.php">Zarejestruj się</a></p>
             </form>
+
+            
         </div>
     </div>
 </body>

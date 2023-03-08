@@ -17,14 +17,15 @@
 
         </div>
         <div class="logo-form">
-            <h3>Zarejestruj się</h3>
+
             <form>
+            <h3>Zarejestruj się</h3>
                 <input class="log-input" id="login" placeholder="Podaj login"><br>
                 <input type="email" class="log-input" id="haslo"placeholder="Podaj email"><br>
                 <input type="password" class="log-input" id="haslo"placeholder="Podaj hasło"><br>
                 <input type="password" class="log-input" id="haslo"placeholder="Powtórz hasło"><br>
                 <div class="zgody">
-                <input type="checkbox" class="zgoda"><span>Oświadczam, iż zapoznałem się z treścią Regulaminu.<br></span>
+                <input type="checkbox" class="zgoda"><span>Oświadczam, iż zapoznałem się z treścią Regulaminu.<br><br></span>
                 <input type="checkbox" class="zgoda"><span>Akceptuję politykę przetwarzania danych osobowych.</span>
                 </div>
 
