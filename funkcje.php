@@ -6,7 +6,7 @@ function rejestracja(){
     }
     else{
         $conn=new mysqli('localhost', 'root', '', 'komis');
-        if($conn)
+        if($conn->query('SELECT * '))
     }
 }
 rejestracja();
