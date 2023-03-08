@@ -195,10 +195,11 @@ nav a:hover{
   border-bottom-left-radius: 30px;
 
 }
-.logo-form{
+.logo-form, .rejest-form{
   width: 60%;
 }
-.logo-form h3{
+
+.logo-form h3, .rejest-form h3{
   text-align: center;
   font-family: Poetsen;
   font-size: 2.5rem;
@@ -221,11 +222,22 @@ nav a:hover{
 }
 .logo-form form{
   width: 70%;
+  height: 100%;
   margin: auto;
   font-family: Poetsen;
   margin-top: 0;
   text-align: center;
   padding: 10%;
+}
+.rejest-form form{
+  width: 70%;
+  height: 100%;
+  margin: auto;
+  font-family: Poetsen;
+  margin-top: 0;
+  text-align: center;
+  padding: 0;
+
 }
 .przycisk{
   width: 20vw;
@@ -236,15 +248,16 @@ nav a:hover{
   cursor: pointer;
   border-radius: 5px;
   margin-top: 4vh;
+  text-align: center;
 }
 .przycisk:hover{
   background-color: rgb(161, 149, 77);
 }
-.logo-form p{
+.logo-form p, .rejest-form p{
   font-size: .8rem;
   color: rgba(128, 128, 128, 0.411);
 }
-.logo-form a{
+.logo-form a, .rejest-form a{
 
   color: var(--navhover);
 }
@@ -265,6 +278,15 @@ nav a:hover{
     margin:auto;
     text-align: center;
   }
+  .rejest-form{
+    width: 100%;
+    margin:auto;
+    text-align: center;
+  }
+  .logo-form form{
+    padding: 0;
+    height: 80%;
+  }
   .przycisk{
     width: 30vw;
   }
@@ -273,11 +295,12 @@ nav a:hover{
   .przycisk{
     width: 40vw;
   }
-  .logo-form h3{
+  .logo-form h3,.rejest-form h3{
     text-align: center;
     font-family: Poetsen;
     font-size: 1.7rem;
   }
+  
   .logo-form form{
     margin-top: 0;
   }

@@ -15,7 +15,7 @@
     <div class="panel">
         <div class="logo-foto">
         </div>
-        <div class="logo-form">
+        <div class="rejest-form">
             <form method="POST" action="funkcje.php">
                 <h3>Zarejestruj się</h3>
                 <input class="log-input" name="loginq" id="login" placeholder="Podaj login" required><br>
@@ -25,8 +25,9 @@
                 <div class="zgody">
                 <input type="checkbox" class="zgoda" required><span>Oświadczam, iż zapoznałem się z treścią Regulaminu.<br><br></span>
                 <input type="checkbox" class="zgoda" required><span>Akceptuję politykę przetwarzania danych osobowych.</span>
-                <button type="submit" name="zarejestruj" class="przycisk">Zarejestruj się</button><br><br>
-                <p>Masz już konto? <a href="rejestracja.php">Zaloguj się</a></p>
+                </div>
+                <button type="submit" name="zarejestruj" class="przycisk">ZAREJESTRUJ SIĘ</button><br><br>
+                <p>Masz już konto? <a href="logowanie.php">Zaloguj się</a></p>
             </form>
         </div>
     </div>
