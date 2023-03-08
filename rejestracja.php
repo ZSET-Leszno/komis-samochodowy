@@ -25,6 +25,8 @@
                 <div class="zgody">
                 <input type="checkbox" class="zgoda" required><span>Oświadczam, iż zapoznałem się z treścią Regulaminu.<br><br></span>
                 <input type="checkbox" class="zgoda" required><span>Akceptuję politykę przetwarzania danych osobowych.</span>
+                <button type="submit" name="zarejestruj" class="przycisk">Zarejestruj się</button><br><br>
+                <p>Masz już konto? <a href="rejestracja.php">Zaloguj się</a></p>
             </form>
         </div>
     </div>

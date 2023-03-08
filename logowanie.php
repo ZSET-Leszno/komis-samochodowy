@@ -26,8 +26,7 @@
                 <button type="submit" class="przycisk">ZALOGUJ SIĘ</button><br><br>
                 <p>Nie masz u nas konta? <a href="rejestracja.php">Zarejestruj się</a></p>
             </form>
-
-            
+         
         </div>
     </div>
 </body>
