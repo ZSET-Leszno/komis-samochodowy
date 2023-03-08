@@ -18,14 +18,14 @@
         </div>
         <div class="logo-form">
             <h3>Zarejestruj się</h3>
-            <form>
-                <input class="log-input" id="login" placeholder="Podaj login"><br>
-                <input type="email" class="log-input" id="haslo"placeholder="Podaj email"><br>
-                <input type="password" class="log-input" id="haslo"placeholder="Podaj hasło"><br>
-                <input type="password" class="log-input" id="haslo"placeholder="Powtórz hasło"><br>
+            <form method="POST" action="funkcje.php">
+                <input class="log-input" name="loginq" id="login" placeholder="Podaj login" required><br>
+                <input type="email" class="log-input" name="mail" id="haslo"placeholder="Podaj email" required><br>
+                <input type="password" class="log-input" name="haslo" id="haslo"placeholder="Podaj hasło" required><br>
+                <input type="password" class="log-input" name="powtorz_haslo" id="haslo"placeholder="Powtórz hasło" requidred><br>
                 <div class="zgody">
-                <input type="checkbox" class="zgoda"><span>Oświadczam, iż zapoznałem się z treścią Regulaminu.<br></span>
-                <input type="checkbox" class="zgoda"><span>Akceptuję politykę przetwarzania danych osobowych.</span>
+                <input type="checkbox" class="zgoda" required><span>Oświadczam, iż zapoznałem się z treścią Regulaminu.<br></span>
+                <input type="checkbox" class="zgoda" required><span>Akceptuję politykę przetwarzania danych osobowych.</span>
                 </div>
 
                 <button type="submit" class="przycisk">ZAREJESTRUJ SIĘ</button><br><br>
