@@ -18,7 +18,7 @@
         <div class="rejest-form">
             <form method="POST" action="funkcje.php">
                 <h3>Zarejestruj się</h3>
-                <input class="log-input" name="loginq" id="login" placeholder="Podaj login" required><br>
+                <input class="log-input" name="login" id="login" placeholder="Podaj login" required><br>
                 <input type="email" class="log-input" name="mail" id="haslo"placeholder="Podaj email" required><br>
                 <input type="password" class="log-input" name="haslo" id="haslo"placeholder="Podaj hasło" required><br>
                 <input type="password" class="log-input" name="powtorz_haslo" id="haslo"placeholder="Powtórz hasło" requidred><br>
