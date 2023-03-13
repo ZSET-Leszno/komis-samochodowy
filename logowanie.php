@@ -1,32 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpeedyMotors</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-</head>
-<body>
-    <div class="nav-logowanie">
-    <a href="index.html"><h1 class="logo">SpeedyMotors</h1></a>
-    </div>
+<?php
+    require_once('funkcje.php');
+    echo navlogowanie();
+?>
     <div class="panel">
         <div class="logo-foto">
-
         </div>
         <div class="logo-form">
-
-
-            <form>
+            <form method="POST" action="#">
             <h3>Zaloguj się</h3>
-                <input class="log-input" id="login" placeholder="Login"><br><br>
-                <input type="password" class="log-input" id="haslo"placeholder="Hasło"><br>
+                <input class="log-input" name="login" id="login" placeholder="Login" required><br><br>
+                <input type="password" class="log-input" name="haslo" id="haslo"placeholder="Hasło" required><br>
+                <?php
+                    if(isset($_POST['login'])){
+                        echo logowanie($_POST['login'], $_POST['haslo']);
+                    }
+                ?>
                 <button type="submit" class="przycisk">ZALOGUJ SIĘ</button><br><br>
                 <p>Nie masz u nas konta? <a href="rejestracja.php">Zarejestruj się</a></p>
             </form>
-         
         </div>
     </div>
 </body>
