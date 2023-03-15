@@ -48,12 +48,14 @@ function navlogowanie(){
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SpeedyMotors</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedyMotors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/vaakash/socializer@2f749eb/css/socializer.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     </head>
     <body>
         <div class="nav-logowanie">
@@ -64,10 +66,9 @@ function navlogowanie(){
 function stopka(){
     return '
     <footer>
-    <div class="stopka">
-        <div class="stopka-lewy">
-            <h4>Skontaktuj się z nami</h4>
-            <hr>
+    <div class="lewy">
+	<h4>Skontaktuj się z nami</h4>
+
             <p>SPEEDY MOTORS</p>
             <p>ul.Szybka 34B</p>
             <p>64-100 Leszno</p>
@@ -76,21 +77,23 @@ function stopka(){
             <p>NIP: 9452188455</p>
             <p>KRS 0000588626</p>
             <p>REGON: 36309630300000</p>
-            </div>
-            <div class="stopka-prawy">
-                <h4>Godziny otwarcia</h4>
-                <hr>
-               <p>09:00-18:00 - Poniedziałek</p>
-               <p>09:00-18:00 - Wtorek</p>
-                <p>09:00-18:00 - Środa</p>
-                <p>09:00-18:00 - Czwartek</p>
-                <p>09:00-18:00 - Piątek</p>
-                <p>09:00-15:00 - Sobota</p>
-                <p>11:00-14:00 - Niedziela</p>
-            </div>
-            <br><br><div class="socializer" data-features="32px,ribbon,opacity,icon-white,pad" data-sites="youtube,email,facebook,tiktok,pinterest" data-meta-link="" data-meta-title="">
-        </div>
     </div>
+    <div class="srodkowy">
+            <h1 class="logo">SpeedyMotors</h1>
+            <div class="socializer" data-features="32px,ribbon,opacity,icon-white,pad" data-sites="youtube,email,facebook,tiktok,pinterest" data-meta-link="" data-meta-title=""></div>
+    </div>
+    <div class="prawy">
+                    <h4>Godziny otwarcia</h4>
+                    <p>09:00-18:00 - Poniedziałek</p>
+                    <p>09:00-18:00 - Wtorek</p>
+                    <p>09:00-18:00 - Środa</p>
+                    <p>09:00-18:00 - Czwartek</p>
+                    <p>09:00-18:00 - Piątek</p>
+                    <p>09:00-15:00 - Sobota</p>
+                    <p>11:00-14:00 - Niedziela</p>
+    </div>   
+            
+
     </footer>
     ';
 }
