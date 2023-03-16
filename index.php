@@ -3,7 +3,7 @@
     echo navbar();
 ?>
 <div class="main">
-
+    <img src="baner.jpg">
 </div>
 <?php
     echo stopka();
