@@ -3,7 +3,10 @@
     echo navbar();
 ?>
 <div class="main">
-    <div class="baner">
+    <div class="parent">
+        <div class="div1"> <span><p>Samochód na raty - <br>Decyzja w 30 minut </p><button onclick="location.href = '#'">Sprawdź ofertę</button></span></div>
+        <div class="div2">  <p>Auta już od 3999 zł</p></div>
+        <div class="div3">  <p>Satysfakcja gwarantowana</p></div>
     </div>
     
     <div class="wrapper">
@@ -28,7 +31,9 @@
         <span class="text">Zadowolonych klientów</span>
         </div>
     </div>
+
 </div>
+
 <script src="skrypty.js"></script>
 <?php
     echo stopka();

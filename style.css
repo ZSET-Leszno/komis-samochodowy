@@ -316,16 +316,99 @@ nav a:hover{
     height: 100vh;
     text-align: center;
 }
-.baner{
-  width: 90%;
-  margin: auto;
-  background-image: url(baner.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 45vh;
-  margin-top: 8vh;
-
+.parent {
+  width: 100%;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 11px;
+  grid-row-gap: 7px;
+  margin-top: 12vh;
+  font-family: Poetsen;
+  font-weight: lighter;
+  margin-bottom: 5vh;
+  }
+.div1 p,.div2 p, .div3 p{
+  color: white;
+  font-size: 1.7rem;
+  border-bottom: 3px solid var(--navhover);
+  border-radius: 3px;
+  padding-bottom: 5px;
 }
+
+.parent button{
+  background-color: var(--navhover);
+  color: white;
+  width: 10vw;
+  height: 5vh;
+  border-radius: 10px;
+  font-family: Poetsen;
+  font-weight: 200;
+  font-size: .7rem;
+}
+.div1, .div2, .div3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  .div1 { 
+    grid-area: 1 / 1 / 5 / 3; 
+    background-image: url(foto1.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: center;
+  }
+  .div2 { 
+    grid-area: 3 / 3 / 5 / 5; 
+    background-image: url(foto3.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: center;
+  }
+  .div3 { 
+    grid-area: 1 / 3 / 3 / 5; 
+    background-image: url(foto2.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: center;
+  }
+  @media only screen and (max-width: 1024px)  {
+    .parent button{
+      width: 15vw;
+    }
+    .div1 p,.div2 p, .div3 p{
+      font-size: 1.2rem;
+    }
+    .parent{
+      height: 40vh;
+    }
+  }
+  @media only screen and (max-width: 700px)  {
+    .parent button{
+      width: 20vw;
+    }
+    .div1 p,.div2 p, .div3 p{
+      font-size: .9rem;
+    }
+    .parent{
+      height: 35vh;
+    }
+  }
+  @media only screen and (max-width: 500px)  {
+    .parent button{
+      font-size: .6rem;
+      width: 25vw;
+    }
+    .div1 p,.div2 p, .div3 p{
+      font-size: .7rem;
+    }
+  }
+
+
 .wrapper{
   justify-content: space-around;
   gap: 20px;
@@ -337,16 +420,16 @@ nav a:hover{
 
 }
 .container{
-  width: 28vmin;
-  height: 28vmin;
+  width: 26vmin;
+  height: 26vmin;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 1.5rem 0;
+  padding: 1.8rem 0;
   position: relative;
   font-size: 1rem;
-  border-radius: 0.6rem;
-  border-bottom: 10px solid var(--navhover);
+  border-radius: 0.4rem;
+  border-bottom: 8px solid var(--navhover);
 }
  .container i{
   color: var(--navhover);
@@ -358,7 +441,7 @@ span.num{
   display: grid;
   place-items: center;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2.8rem;
 }
 span.text{
   color: var(--navhover);
