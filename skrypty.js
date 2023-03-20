@@ -1,11 +1,11 @@
-let x=0;
-window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-        //tu możesz zmieniać po ilu pikselach ma się odliczać
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200 && x==0) {liczby(); x=1;}}
-function liczby(){
+//let x=0;
+//window.onscroll = function() {scrollFunction()};
+//        function scrollFunction() {
+ //       //tu możesz zmieniać po ilu pikselach ma się odliczać
+ //       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200 && x==0) {liczby(); x=1;}}
+//function liczby(){
     let valueDisplays = document.querySelectorAll(".num");
-    let interval = 3000;
+    let interval = 2000;
 
     valueDisplays.forEach((valueDisplay) => {
         let startValue = 0;
@@ -19,4 +19,4 @@ function liczby(){
             }
         }, duration);
     });
-};
+//};
