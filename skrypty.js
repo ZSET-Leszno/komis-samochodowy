@@ -1,7 +1,7 @@
 window.onscroll = function() {scrollFunction()};
         function scrollFunction() {
         //tu możesz zmieniać po ilu pikselach ma się odliczać
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {liczby();}}
+        if (document.body.scrollTop == 200 || document.documentElement.scrollTop == 200) {liczby();}}
 function liczby(){
     let valueDisplays = document.querySelectorAll(".num");
     let interval = 3000;
