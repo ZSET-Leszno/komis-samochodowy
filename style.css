@@ -313,8 +313,13 @@ nav a:hover{
     margin: auto;
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
-    height: 100vh;
+    height: 200vh;
     text-align: center;
+}
+.staty{
+  background-color: var(--background);
+  padding: 2vh;
+  margin-top: 3vh;
 }
 .parent {
   width: 100%;
@@ -337,7 +342,7 @@ nav a:hover{
   padding-bottom: 5px;
 }
 
-.parent button{
+.guzik{
   background-color: var(--navhover);
   color: white;
   width: 10vw;
@@ -345,7 +350,34 @@ nav a:hover{
   border-radius: 10px;
   font-family: Poetsen;
   font-weight: 200;
-  font-size: .7rem;
+  font-size: .8rem;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+.guzik:hover{
+  background-color: rgb(141, 132, 78);
+}
+.guzik2{
+  background-color: var(--navhover);
+  color: white;
+  width: 15vw;
+  height: 5vh;
+  border-radius: 10px;
+  font-family: Poetsen;
+  font-weight: 200;
+  font-size: .8rem;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+.guzik2:hover{
+  background-color: rgb(141, 132, 78);
+}
+@media only screen and (max-width: 1024px)  {
+  .guzik2{
+    width: 25vw;
+  }
 }
 .div1, .div2, .div3{
   display: flex;
@@ -377,7 +409,7 @@ nav a:hover{
     background-position: center;
   }
   @media only screen and (max-width: 1024px)  {
-    .parent button{
+    .guzik{
       width: 15vw;
     }
     .div1 p,.div2 p, .div3 p{
@@ -388,7 +420,7 @@ nav a:hover{
     }
   }
   @media only screen and (max-width: 700px)  {
-    .parent button{
+    .guzik{
       width: 20vw;
     }
     .div1 p,.div2 p, .div3 p{
@@ -399,7 +431,7 @@ nav a:hover{
     }
   }
   @media only screen and (max-width: 500px)  {
-    .parent button{
+    .guzik{
       font-size: .6rem;
       width: 25vw;
     }
@@ -550,7 +582,74 @@ span.text{
     font-size: .6rem;
   }
 }
+.oferty{
+  height: 65vh;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  margin-top: 5vh;
+  padding-top: 1px;
+}
+.oferty a {
+  all: unset;
+}
+.oferty h2{
+  color: var(--navhover);
+  font-family: Poetsen;
+  font-weight: 200;
+  font-size: 2rem;
+  border-bottom: 3px solid var(--navhover);
+  width: 30%;
+  margin: 3vh auto ;
+  padding-bottom: 1vh;
+}
+.wrapper-oferty{
+  justify-content: space-around;
+  gap: 10px;
+  width: 90%;
+  display: flex;
+  font-family: Poetsen;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 2vh;
+}
+.oferta{
+  width: 20vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  border: 3px solid var(--navhover);
+  transition: transform 50ms ease-in-out 50ms;
+  cursor: pointer;
+  margin-bottom: 2vh;
+}
+.oferta:hover{
+  transform: translate(0px, -5px);
+}
+.oferta-foto{
+  height: 20vh;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
 
+.oferta h4{
+  margin: 10px;
+  font-size: 1.2rem;
+}
+.oferta span{
+  margin: 10px;
+  color: var(--navhover);
+  font-size: 1.5rem;
+}
 
 /*-----------------------------stopka-----------------------------------------*/
 footer{
