@@ -20,6 +20,8 @@ function navbar(){
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/vaakash/socializer@2f749eb/css/socializer.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
         <link rel="icon" type="image/x-icon" href="favicon.png">
+        <script src="https://kit.fontawesome.com/6614aa0530.js" crossorigin="anonymous"></script>
+
     </head>
     
     <body>
