@@ -33,7 +33,7 @@ header{
     width: 100%;
     left: 0;
     font-family: Poetsen;
-    border-bottom: 3px solid var(--navhover);
+    border-bottom: 0;
 }
 .logo{
     font-size: 1.6rem;
@@ -120,6 +120,7 @@ nav a:hover{
     header{
         display: grid;
         grid-template-columns: 10% 10% 70% 10%;
+        border-bottom: 3px solid var(--navhover);
     }
     .logo{
         grid-column: 2 / 3;
@@ -589,6 +590,9 @@ span.text{
   margin-top: 5vh;
   padding-top: 1px;
 }
+.oferty p{
+  margin: 2vh 0 ;
+}
 .oferty a {
   all: unset;
 }
@@ -599,7 +603,7 @@ span.text{
   font-size: 2rem;
   border-bottom: 3px solid var(--navhover);
   width: 30%;
-  margin: 3vh auto ;
+  margin: 4vh auto ;
   padding-bottom: 1vh;
 }
 .wrapper-oferty{
@@ -640,15 +644,96 @@ span.text{
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-
 .oferta h4{
   margin: 10px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 .oferta span{
   margin: 10px;
   color: var(--navhover);
-  font-size: 1.5rem;
+  font-size: 2rem;
+}
+@media only screen and (max-width: 2100px)  {
+  .oferty{
+    height: 67vh;
+  }
+.oferta{
+  height: 43vh;
+}
+}
+@media only screen and (max-width: 1600px)  {
+  .oferty{
+    height: 65vh;
+  }
+.oferta{
+  height: 40vh;
+}
+}
+@media only screen and (max-width: 1400px)  {
+  .oferty p{
+    font-size: 12px;
+  }
+  .oferty h4{
+    font-size: 19px;
+  }
+  .oferty span{
+    font-size: 28px;
+  }
+}
+@media only screen and (max-width: 1100px)  {
+  .oferty p{
+    font-size: 12px;
+    margin: 5px 0;
+  }
+  .oferty h4{
+    font-size: 17px;
+  }
+  .oferty span{
+    font-size: 24px;
+  }
+  .oferty h2{
+    font-size: 26px;
+    width: 80%;
+  }
+  .oferty{
+    height: 65vh;
+  }
+}
+@media only screen and (max-width: 1000px)  {
+  #oferta4{
+    display: none;
+  }
+  .oferta{
+    width: 30vw;
+  }
+  .oferty{
+    height: 62vh;
+  }
+}
+@media only screen and (max-width: 850px)  {
+  #oferta3{
+    display: none;
+  }
+  #oferta4{
+    display: none;
+  }
+  .oferta{
+    width: 40vw;
+  }
+}
+@media only screen and (max-width: 550px)  {
+  #oferta2{
+    display: none;
+  }
+  #oferta3{
+    display: none;
+  }
+  #oferta4{
+    display: none;
+  }
+  .oferta{
+    width: 60vw;
+  }
 }
 
 /*-----------------------------stopka-----------------------------------------*/
