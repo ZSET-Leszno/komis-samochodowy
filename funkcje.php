@@ -143,22 +143,43 @@ function niewchodzic(){
 }
 function najnowsze(){
     $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
-    $wynik=$conn->query('SELECT *, marka.id_marki, marka.nazwa, paliwo.id, paliwo.rodzaj_paliwa, model.id_modelu, model.nazwa FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model order by id_samochodu desc limit 4;');
+    $wynik=$conn->query('SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model order by id_samochodu desc limit 4;');
     $wynik->fetch_assoc();
+    $i=1;
     foreach($wynik as $w){
-        echo '
-        <div class="oferty" id="oferta1">
-        <h2>Wybrane dla Ciebie</h2>
-        <div class="wrapper-oferty" >
-        <div class="oferta">
-        <a href="#">
-            <div class="oferta-foto" style="background-image: url(img/1_1.webp)"></div>
+        $zdj=explode(";", $w['foto']);
+        if($i==1){
+            echo '
+            <div class="oferty" id="oferta1">
+            <h2>Wybrane dla Ciebie</h2>
+            <div class="wrapper-oferty" >
+            <div class="oferta">
+            <a href="#">
+                <div class="oferta-foto" style="background-image: url(img/'.$zdj[0].')"></div>
+                <h4>'.$w['tytul'].'</h4>
+                <p> '.$w['rmarka'].' • '.$w['rmodel'].' <br>
+                '.$w['rok_produkcji'].' • '.$w['przebieg'].' km • '.$w['rpaliwo'].' • '.$w['pojemnosc_silnika'].' cm3</p>
+                <span>'.$w['cena'].' PLN</span>
+            </a>
+            </div>
+            ';
+            $i++;
+        }
+        else{
+            $zdj=explode(";", $w['foto']);
+            echo '
+            <div class="oferta" id="oferta'.$i.'">
+            <a href="#">
+            <div class="oferta-foto" style="background-image: url(img/'.$zdj[0].')"></div>
             <h4>'.$w['tytul'].'</h4>
-            <p> BMW • E36 <br>
-            '.$w['rok_produkcji'].' • '.$w['przebieg'].' km • Diesel • '.$w['pojemnosc_silnika'].' cm3</p>
+            <p> '.$w['rmarka'].' • '.$w['rmodel'].' <br>
+            '.$w['rok_produkcji'].' • '.$w['przebieg'].' km • '.$w['rpaliwo'].' • '.$w['pojemnosc_silnika'].' cm3</p>
             <span>'.$w['cena'].' PLN</span>
-        </a> 
-        ';
+            </a> 
+            </div>
+            ';
+            $i++;
+        }
     }
     $conn->close();
 }

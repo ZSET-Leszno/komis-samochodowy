@@ -9,7 +9,6 @@
         <div class="div3">  <p>Satysfakcja gwarantowana</p></div>
     </div>
     
-
     <div class="oferty" id="oferta1">
         <h2>Wybrane dla Ciebie</h2>
     <div class="wrapper-oferty" >
