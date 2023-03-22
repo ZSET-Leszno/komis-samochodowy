@@ -1,5 +1,6 @@
 <?php
     require_once('funkcje.php');
+    niewchodzic();
     echo navlogowanie();
 ?>
     <div class="panel">

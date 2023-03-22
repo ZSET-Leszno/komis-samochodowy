@@ -115,6 +115,7 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
         }
         else{
             $conn->query(sprintf("INSERT INTO uzytkownicy VALUES (NULL, '%s', '%s', '".password_hash($haslo, PASSWORD_DEFAULT)."', '', '', '')", mysqli_real_escape_string($conn,$mail), mysqli_real_escape_string($conn,$login)));
+            header("Location: logowanie.php?r=1");
             return "Rejestracja udana";
         }
         $conn->close();
@@ -126,10 +127,38 @@ function logowanie($login, $haslo){
     {
         $_SESSION['login']=$login;
         $_SESSION['id']=$conn->query(sprintf("SELECT id_uzytkownika from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0];
+        header("Location: index.php");
         return "elegancja i tak tego nie widać";
     }
     else{
         return 'Błędny login lub hasło';
+    }
+    $conn->close();
+}
+//sprawdza czy uzytkownik jest zalogowany i nie pozwala mu wejsc na stronę
+function niewchodzic(){
+    if(isset($_SESSION['id'])){
+        header("Location: index.php");
+    }
+}
+function najnowsze(){
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    $wynik=$conn->query('SELECT *, marka.id_marki, marka.nazwa, paliwo.id, paliwo.rodzaj_paliwa, model.id_modelu, model.nazwa FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model order by id_samochodu desc limit 4;');
+    $wynik->fetch_assoc();
+    foreach($wynik as $w){
+        echo '
+        <div class="oferty" id="oferta1">
+        <h2>Wybrane dla Ciebie</h2>
+        <div class="wrapper-oferty" >
+        <div class="oferta">
+        <a href="#">
+            <div class="oferta-foto" style="background-image: url(img/1_1.webp)"></div>
+            <h4>'.$w['tytul'].'</h4>
+            <p> BMW • E36 <br>
+            '.$w['rok_produkcji'].' • '.$w['przebieg'].' km • Diesel • '.$w['pojemnosc_silnika'].' cm3</p>
+            <span>'.$w['cena'].' PLN</span>
+        </a> 
+        ';
     }
     $conn->close();
 }

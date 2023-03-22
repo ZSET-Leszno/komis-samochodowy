@@ -1,5 +1,6 @@
 <?php
     require_once('funkcje.php');
+    niewchodzic();
     echo navlogowanie();
 ?>
     <div class="panel">
@@ -11,6 +12,9 @@
                 <input class="log-input" name="login" id="login" placeholder="Login" required><br><br>
                 <input type="password" class="log-input" name="haslo" id="haslo"placeholder="Hasło" required><br>
                 <?php
+                    if(isset($_GET['r'])){
+                        echo "Rejestracja udana. Aby kontynuować zaloguj się.";
+                    }
                     if(isset($_POST['login'])){
                         echo logowanie($_POST['login'], $_POST['haslo']);
                     }
