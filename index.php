@@ -76,7 +76,16 @@
         </div>
     </div>
     </div>
-    
+    <div class="opinie">
+        <h2>Opinie klientów</h2>
+        <div class="opinia">
+
+            <h3>★★★☆☆</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, aperiam id omnis magni quas voluptatem tempora labore necessitatibus eligendi facere excepturi ut, suscipit optio beatae laudantium! Voluptatem eligendi excepturi architecto.</p>
+
+            
+        </div>
+    </div>
 
 </div>
 
