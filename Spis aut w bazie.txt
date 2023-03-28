@@ -1,0 +1,31 @@
+  ----< SPIS AUT >----
+
+	skoda
+	bwm
+	audi
+	peugeot
+	opel
+	ford
+	citroen
+	fiat
+	toyota
+	volkswagen
+	renault
+	volvo
+	skoda
+	kia
+
+----< SPIS POCHODZENIA >----
+
+ 	AUSTRIA
+ 	BELGIA
+	 CZECHY
+ 	HOLANDIA
+ 	HISZPANIA
+ 	JAPONIA
+ 	KANADA
+ 	NIEMCY
+ 	POLSKA
+ 	SZWAJCARIA
+
+
