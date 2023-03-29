@@ -1,3 +1,4 @@
+  
   ----< SPIS AUT >----
 
 	skoda
@@ -14,12 +15,13 @@
 	volvo
 	skoda
 	kia
+    nissan
 
 ----< SPIS POCHODZENIA >----
 
  	AUSTRIA
  	BELGIA
-	 CZECHY
+	CZECHY
  	HOLANDIA
  	HISZPANIA
  	JAPONIA
@@ -27,5 +29,5 @@
  	NIEMCY
  	POLSKA
  	SZWAJCARIA
-
-
+    NORWEGIA
+    GRECJA
