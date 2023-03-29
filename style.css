@@ -314,7 +314,7 @@ nav a:hover{
     margin: auto;
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
-    height: 190vh;
+    height: 200vh;
     text-align: center;
 }
 .staty{
@@ -596,7 +596,7 @@ span.text{
 .oferty a {
   all: unset;
 }
-.oferty h2{
+.oferty h2, .sponsorzy h2{
   color: var(--navhover);
   font-family: Poetsen;
   font-weight: 200;
@@ -691,7 +691,7 @@ span.text{
   .oferty span{
     font-size: 24px;
   }
-  .oferty h2{
+  .oferty h2, .sponsorzy h2{
     font-size: 26px;
     width: 80%;
   }
@@ -834,6 +834,5 @@ footer .logo{
 .sponsorzy{
   width: 80%;
   margin:  5vh auto;
-  filter: grayscale(1);
-  margin-top: 5vh;
+
 }

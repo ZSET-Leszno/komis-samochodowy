@@ -38,6 +38,7 @@
     </div>
     </div>
     <div class="sponsorzy">
+        <h2>Nasi partnerzy</h2>
         <img src="My project-2 (1).png">
     </div>
 
