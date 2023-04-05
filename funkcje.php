@@ -155,7 +155,7 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             $maail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: https://detailing69.tk/logowanie.php?p=$kod";
 
             if(!$maail->Send()) {
-            return "Błąd wysyłania e-maila: " . $maail->ErrorInfo;
+            $error= "Błąd wysyłania e-maila: " . $maail->ErrorInfo;
             } else {
                 $conn->query(sprintf("INSERT INTO uzytkownicy VALUES (NULL, '%s', '%s', '".password_hash($haslo, PASSWORD_DEFAULT)."', '', '', '', '0')", mysqli_real_escape_string($conn,$mail), mysqli_real_escape_string($conn,$login)));
                 header("Location: logowanie.php?r=1");
@@ -226,5 +226,9 @@ function najnowsze(){
         }
     }
     $conn->close();
+}
+function potwierdz(){
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    
 }
 ?>
