@@ -103,6 +103,9 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
     if($haslo!=$powtorz_haslo){
         return "Hasła muszą być identyczne";
     }
+    elseif(strlen($haslo)<8){
+        return "Hasło musi mieć przynajmniej 8 znaków!";
+    }
     else{
         $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
         if($conn->query(sprintf("SELECT count(id_uzytkownika) from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0])
@@ -114,7 +117,35 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             return "Istnieje już konto dla podanego adresu e-mail";
         }
         else{
-            $conn->query(sprintf("INSERT INTO uzytkownicy VALUES (NULL, '%s', '%s', '".password_hash($haslo, PASSWORD_DEFAULT)."', '', '', '')", mysqli_real_escape_string($conn,$mail), mysqli_real_escape_string($conn,$login)));
+            $kod=generator();
+            $conn->query('INSERT INTO potwierdzenia VALUES (NULL, "'.$kod.'", "rejestracja", "'.$login.'")');
+            require("PHPMailer/src/PHPMailer.php");
+            require("PHPMailer/src/SMTP.php");
+            require("PHPMailer/src/Exception.php");
+
+            $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+            $mail->IsSMTP();
+            $mail->CharSet="UTF-8";
+            $mail->Host = "smtp.gmail.com"; /* Zależne od hostingu poczty*/
+            $mail->SMTPDebug = 2;
+            $mail->Port = 587 ; /* Zależne od hostingu poczty, czasem 587 */
+            $mail->SMTPSecure = 'tsl'; /* Jeżeli ma być aktywne szyfrowanie SSL */
+            $mail->SMTPAuth = true;
+            $mail->IsHTML(true);
+            $mail->Username = "speedymotorsinfo@gmail.com"; /* login do skrzynki email często adres*/
+            $mail->Password = "lahshfschlwtdwxy"; /* Hasło do poczty */
+            $mail->setFrom('speedyinfo@spoko.pl'); /* adres e-mail i nazwa nadawcy */
+            $mail->AddAddress($mail); /* adres lub adresy odbiorców */
+            $mail->Subject = "SpeedyMotors potwierdzenie rejestracji"; /* Tytuł wiadomości */
+            $mail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: https://detailing69.tk/logowanie.php?p=$kod";
+
+            if(!$mail->Send()) {
+            echo "Błąd wysyłania e-maila: " . $mail->ErrorInfo;
+            } else {
+            echo "Wiadomość została wysłana!";
+            }
+            $conn->query(sprintf("INSERT INTO uzytkownicy VALUES (NULL, '%s', '%s', '".password_hash($haslo, PASSWORD_DEFAULT)."', '', '', '', '0')", mysqli_real_escape_string($conn,$mail), mysqli_real_escape_string($conn,$login)));
             header("Location: logowanie.php?r=1");
             return "Rejestracja udana";
         }
@@ -182,5 +213,18 @@ function najnowsze(){
         }
     }
     $conn->close();
+}
+function generator(){
+    $str = random_bytes(15);
+    $str = base64_encode($str);
+    $str = str_replace(["+", "/", "="], "", $str);
+    $str = substr($str, 0, 15);
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    if($conn->query("SELECT count(id) from potwierdzenia where kod='$str'")->fetch_array()[0]){
+        return generator();
+    }
+    else{
+        return $str;
+    }
 }
 ?>
