@@ -8,9 +8,9 @@
   }
 /*-----------------------------zmienne-----------------------------------------*/
 :root{
-    --background:rgb(54, 54, 54) ;
+    --background:#363636 ;
     --navfont: rgb(255, 255, 255);
-    --navhover: rgb(196, 180, 91);
+    --navhover: #c4b45b;
 }
 
 
@@ -314,7 +314,7 @@ nav a:hover{
     margin: auto;
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
-    height: 200vh;
+    height: 240vh;
     text-align: center;
 }
 .staty{
@@ -440,7 +440,54 @@ nav a:hover{
       font-size: .7rem;
     }
   }
+  .parent1 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    padding: 5vh;
+    }
+    
+    .marka1 { grid-area: 1 / 1 / 2 / 2;}
+    .marka2 { grid-area: 1 / 2 / 2 / 3; }
+    .marka3 { grid-area: 1 / 3 / 2 / 4; }
+    .marka4 { grid-area: 1 / 4 / 2 / 5; }
+    .marka5 { grid-area: 1 / 5 / 2 / 6; }
+    .marka6 { grid-area: 2 / 1 / 3 / 2; }
+    .marka7 { grid-area: 2 / 2 / 3 / 3; }
+    .marka8 { grid-area: 2 / 3 / 3 / 4; }
+    .marka9 { grid-area: 2 / 4 / 3 / 5; }
+    .marka10 { grid-area: 2 / 5 / 3 / 6; }
+    .marka11 { grid-area: 3 / 1 / 4 / 2; }
+    .marka12 { grid-area: 3 / 2 / 4 / 3; }
+    .marka13 { grid-area: 3 / 3 / 4 / 4; }
+    .marka14 { grid-area: 3 / 4 / 4 / 5; }
+    .marka15 { grid-area: 3 / 5 / 4 / 6; }
 
+    .marka1 ,.marka2,.marka3,.marka4,.marka5,.marka6,
+    .marka7,.marka8,.marka9,.marka10,.marka11,.marka12,
+    .marka13,.marka14,.marka15 {
+      background-color: #ffffff;
+       border-radius: 10px;
+       height: 8vh;
+       position: relative;
+       -webkit-box-shadow: 9px 8px 17px -16px rgba(66, 68, 90, 1);
+       -moz-box-shadow: 9px 8px 17px -16px rgba(66, 68, 90, 1);
+       box-shadow: 9px 8px 17px -16px rgba(66, 68, 90, 1);
+       border: #c4b45b solid 2px;
+      }
+      .marka1 img,.marka2 img,.marka3 img,.marka4 img,.marka5 img,.marka6 img,
+      .marka7 img,.marka8 img,.marka9 img,.marka10 img,.marka11 img,.marka12 img,
+      .marka13 img,.marka14 img,.marka15 img {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -25px 0 0 -25px;
+
+      }
 
 .wrapper{
   justify-content: space-around;
