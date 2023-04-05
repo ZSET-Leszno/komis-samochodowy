@@ -1,6 +1,20 @@
 <?php
 require('config.php');
 session_start();
+function generator(){
+    $str = random_bytes(15);
+    $str = base64_encode($str);
+    $str = str_replace(["+", "/", "="], "", $str);
+    $str = substr($str, 0, 15);
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    if($conn->query("SELECT count(id) from potwierdzenia where kod='$str'")->fetch_array()[0]){
+        return generator();
+    }
+    else{
+        return $str;
+    }
+    $conn->close();
+}
 function navbar(){
     if(isset($_SESSION['id'])){
         $przycisk='<a href="logowanie.php">'.$_SESSION['login'].'</a>';
@@ -119,9 +133,9 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
         else{
             $kod=generator();
             $conn->query('INSERT INTO potwierdzenia VALUES (NULL, "'.$kod.'", "rejestracja", "'.$login.'")');
-            require("PHPMailer/src/PHPMailer.php");
-            require("PHPMailer/src/SMTP.php");
-            require("PHPMailer/src/Exception.php");
+            require("/etc/PHPMailer/PHPMailer/src/PHPMailer.php");
+            require("/etc/PHPMailer/PHPMailer/src/SMTP.php");
+            require("/etc/PHPMailer/PHPMailer/src/Exception.php");
 
             $maail = new PHPMailer\PHPMailer\PHPMailer();
 
@@ -212,18 +226,5 @@ function najnowsze(){
         }
     }
     $conn->close();
-}
-function generator(){
-    $str = random_bytes(15);
-    $str = base64_encode($str);
-    $str = str_replace(["+", "/", "="], "", $str);
-    $str = substr($str, 0, 15);
-    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
-    if($conn->query("SELECT count(id) from potwierdzenia where kod='$str'")->fetch_array()[0]){
-        return generator();
-    }
-    else{
-        return $str;
-    }
 }
 ?>
