@@ -1,31 +1,85 @@
+  
   ----< SPIS AUT >----
 
-	skoda
+	skoda 
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 15;
 	bwm
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 2;
 	audi
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 1;
 	peugeot
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 12;
 	opel
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 11;
 	ford
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 6;
 	citroen
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 3;
 	fiat
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 5;
 	toyota
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 16;
 	volkswagen
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 17;
 	renault
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 13;
 	volvo
-	skoda
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 18;
+	seat
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 15;
 	kia
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 8;
+    nissan
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 10;
+    mercedes
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 9;
+    dacia
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 4;
+    hyundai - aby pokazaæ ze nie ma
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where marka = 7;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ----< SPIS POCHODZENIA >----
 
  	AUSTRIA
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 1;
  	BELGIA
-	 CZECHY
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 2;
+	CZECHY
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 6;
  	HOLANDIA
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 11;
  	HISZPANIA
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 12;
  	JAPONIA
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 15;
  	KANADA
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 16;
  	NIEMCY
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 22;
  	POLSKA
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 24;
  	SZWAJCARIA
-
-
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 30;
+    NORWEGIA
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 23;
+    GRECJA
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 10;
+    DANIA
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where pochodzenie = 7;
+    
+    
+    
+    
+    Przedzia³y cenowe 
+    
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where cena BETWEEN $cena1 and $cena2;
+    
+    
+    Przebieg
+    
+    SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model where cena BETWEEN $przebieg1 and $przebieg2;
+    
+    
