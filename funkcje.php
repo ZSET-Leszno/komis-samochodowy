@@ -123,25 +123,25 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             require("PHPMailer/src/SMTP.php");
             require("PHPMailer/src/Exception.php");
 
-            $mail = new PHPMailer\PHPMailer\PHPMailer();
+            $maail = new PHPMailer\PHPMailer\PHPMailer();
 
-            $mail->IsSMTP();
-            $mail->CharSet="UTF-8";
-            $mail->Host = "smtp.gmail.com"; /* Zależne od hostingu poczty*/
-            $mail->SMTPDebug = 2;
-            $mail->Port = 587 ; /* Zależne od hostingu poczty, czasem 587 */
-            $mail->SMTPSecure = 'tsl'; /* Jeżeli ma być aktywne szyfrowanie SSL */
-            $mail->SMTPAuth = true;
-            $mail->IsHTML(true);
-            $mail->Username = "speedymotorsinfo@gmail.com"; /* login do skrzynki email często adres*/
-            $mail->Password = "lahshfschlwtdwxy"; /* Hasło do poczty */
-            $mail->setFrom('speedyinfo@spoko.pl'); /* adres e-mail i nazwa nadawcy */
-            $mail->AddAddress($mail); /* adres lub adresy odbiorców */
-            $mail->Subject = "SpeedyMotors potwierdzenie rejestracji"; /* Tytuł wiadomości */
-            $mail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: https://detailing69.tk/logowanie.php?p=$kod";
+            $maail->IsSMTP();
+            $maail->CharSet="UTF-8";
+            $maail->Host = "smtp.gmail.com"; /* Zależne od hostingu poczty*/
+            $maail->SMTPDebug = 2;
+            $maail->Port = 587 ; /* Zależne od hostingu poczty, czasem 587 */
+            $maail->SMTPSecure = 'tsl'; /* Jeżeli ma być aktywne szyfrowanie SSL */
+            $maail->SMTPAuth = true;
+            $maail->IsHTML(true);
+            $maail->Username = "speedymotorsinfo@gmail.com"; /* login do skrzynki email często adres*/
+            $maail->Password = "lahshfschlwtdwxy"; /* Hasło do poczty */
+            $maail->setFrom('speedyinfo@spoko.pl'); /* adres e-mail i nazwa nadawcy */
+            $maail->AddAddress($mail); /* adres lub adresy odbiorców */
+            $maail->Subject = "SpeedyMotors potwierdzenie rejestracji"; /* Tytuł wiadomości */
+            $maail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: https://detailing69.tk/logowanie.php?p=$kod";
 
-            if(!$mail->Send()) {
-            return "Błąd wysyłania e-maila: " . $mail->ErrorInfo;
+            if(!$maail->Send()) {
+            return "Błąd wysyłania e-maila: " . $maail->ErrorInfo;
             } else {
                 $conn->query(sprintf("INSERT INTO uzytkownicy VALUES (NULL, '%s', '%s', '".password_hash($haslo, PASSWORD_DEFAULT)."', '', '', '', '0')", mysqli_real_escape_string($conn,$mail), mysqli_real_escape_string($conn,$login)));
                 header("Location: logowanie.php?r=1");
