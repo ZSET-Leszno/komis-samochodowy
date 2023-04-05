@@ -37,16 +37,11 @@
         </div>
     </div>
     </div>
-    <div class="opinie">
-        <h2>Opinie klientów</h2>
-        <div class="opinia">
-
-            <h3>★★★☆☆</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, aperiam id omnis magni quas voluptatem tempora labore necessitatibus eligendi facere excepturi ut, suscipit optio beatae laudantium! Voluptatem eligendi excepturi architecto.</p>
-
-            
-        </div>
+    <div class="sponsorzy">
+        <h2>Nasi partnerzy</h2>
+        <img src="My project-2 (1).png">
     </div>
+
 
 </div>
 

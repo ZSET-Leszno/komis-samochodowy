@@ -32,7 +32,7 @@ function navbar(){
             <nav>
                 <ul>
                     <li><a href="#">Strona Główna</a></li>
-                    <li><a href="#">Oferty</a></li>
+                    <li><a href="oferty.php">Oferty</a></li>
                     <li><a href="#">Sprzedaj</a></li>
                     <li><a href="#">O nas</a></li>
                     <li>'.$przycisk.'</li>
