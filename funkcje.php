@@ -141,13 +141,12 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             $mail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: https://detailing69.tk/logowanie.php?p=$kod";
 
             if(!$mail->Send()) {
-            echo "Błąd wysyłania e-maila: " . $mail->ErrorInfo;
+            return "Błąd wysyłania e-maila: " . $mail->ErrorInfo;
             } else {
-            echo "Wiadomość została wysłana!";
+                $conn->query(sprintf("INSERT INTO uzytkownicy VALUES (NULL, '%s', '%s', '".password_hash($haslo, PASSWORD_DEFAULT)."', '', '', '', '0')", mysqli_real_escape_string($conn,$mail), mysqli_real_escape_string($conn,$login)));
+                header("Location: logowanie.php?r=1");
+                return "Rejestracja udana";
             }
-            $conn->query(sprintf("INSERT INTO uzytkownicy VALUES (NULL, '%s', '%s', '".password_hash($haslo, PASSWORD_DEFAULT)."', '', '', '', '0')", mysqli_real_escape_string($conn,$mail), mysqli_real_escape_string($conn,$login)));
-            header("Location: logowanie.php?r=1");
-            return "Rejestracja udana";
         }
         $conn->close();
     }
