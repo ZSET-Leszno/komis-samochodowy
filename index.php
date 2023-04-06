@@ -9,10 +9,12 @@
         <div class="div3">  <p>Satysfakcja gwarantowana</p></div>
     </div>
    
-    <?php najnowsze();?>
-    </div>
-    <button class="guzik2" onclick="location.href = 'oferty.php'">Zobacz wszystkie</button>
-    </div>
+<?php 
+//najnowsze();
+?>
+
+ <!-- <button class="guzik2" onclick="location.href = 'oferty.php'">Zobacz wszystkie</button> -->
+
     <div class="staty">
     <div class="wrapper">
         <div class="container">
@@ -23,7 +25,7 @@
         <div class="container">
         <i class="fa-solid fa-handshake"></i>
         <span class="num" data-val="120">0</span>
-        <span class="text">Sprzedanych aut</span>
+        <span class="text">Transakcji</span>
         </div>
         <div class="container">
         <i class="fa-solid fa-calendar-days"></i>
@@ -33,7 +35,7 @@
         <div class="container">
         <i class="fa-solid fa-face-smile"></i>
         <span class="num" data-val="115">0</span>
-        <span class="text">Zadowolonych klientów</span>
+        <span class="text">Uśmiechów</span>
         </div>
     </div>
     </div>

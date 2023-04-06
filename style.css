@@ -182,7 +182,7 @@ nav a:hover{
   margin: 10vh auto;
   background-color: white;
   border-radius: 30px;
-  height: 70vh;
+  height: 70%;
   display: flex;
 }
 .nav-logowanie h1:hover{
@@ -314,13 +314,13 @@ nav a:hover{
     margin: auto;
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
-    height: 240vh;
+    padding-bottom: 3%;
     text-align: center;
 }
 .staty{
   background-color: var(--background);
-  padding: 2vh;
   margin-top: 3vh;
+  padding: 3vh 0;
 }
 .parent {
   width: 100%;
@@ -378,6 +378,7 @@ nav a:hover{
 @media only screen and (max-width: 1024px)  {
   .guzik2{
     width: 25vw;
+    font-size: .6rem;
   }
 }
 .div1, .div2, .div3{
@@ -465,21 +466,17 @@ nav a:hover{
     .marka14 { grid-area: 3 / 4 / 4 / 5; }
     .marka15 { grid-area: 3 / 5 / 4 / 6; }
 
-    .marka1 ,.marka2,.marka3,.marka4,.marka5,.marka6,
-    .marka7,.marka8,.marka9,.marka10,.marka11,.marka12,
-    .marka13,.marka14,.marka15 {
+    #marka {
       background-color: #ffffff;
        border-radius: 10px;
-       height: 8vh;
+       height: 7vh;
        position: relative;
        -webkit-box-shadow: 9px 8px 17px -16px rgba(66, 68, 90, 1);
        -moz-box-shadow: 9px 8px 17px -16px rgba(66, 68, 90, 1);
        box-shadow: 9px 8px 17px -16px rgba(66, 68, 90, 1);
        border: #c4b45b solid 2px;
       }
-      .marka1 img,.marka2 img,.marka3 img,.marka4 img,.marka5 img,.marka6 img,
-      .marka7 img,.marka8 img,.marka9 img,.marka10 img,.marka11 img,.marka12 img,
-      .marka13 img,.marka14 img,.marka15 img {
+      #marka img{
         width: 50px;
         height: 50px;
         position: absolute;
@@ -488,6 +485,34 @@ nav a:hover{
         margin: -25px 0 0 -25px;
 
       }
+    #marka:hover{
+      background-color: var(--background);
+      transition: 400ms;
+    }
+    @media only screen and (max-width: 1224px)  {
+      #marka img{
+        width: 40px;
+        height: 40px;
+        margin: -20px 0 0 -20px;
+      }
+    }
+    @media only screen and (max-width: 900px)  {
+      #marka img{
+        width: 35px;
+        height: 35px;
+        margin: calc(-35px / 2) 0 0 calc(-35px / 2);
+      }
+    }
+    @media only screen and (max-width: 600px)  {
+      #marka img{
+        width: 20px;
+        height: 20px;
+        margin: calc(-20px / 2) 0 0 calc(-20px / 2);
+      }
+      #marka{
+        height: 4vh;
+      }
+    }
 
 .wrapper{
   justify-content: space-around;
@@ -501,7 +526,7 @@ nav a:hover{
 }
 .container{
   width: 26vmin;
-  height: 26vmin;
+  height: 22vmin;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -532,29 +557,41 @@ span.text{
 }
 @media only screen and (max-width: 1024px)  {
   .wrapper{
-    width: 85vw;
+    width: 65vw;
   }
   .container{
-    height: 26vmin;
-    width: 26vmin;
+    height: 20vmin;
+    width: 24vmin;
+  }
+  .staty{
+    padding: 3vh 0;
+  }
 
+  .container i{
+    font-size: 1.8rem;
+  }
+  span.num{
+    font-size: 2.4rem;
   }
   span.text{
-    font-size: 1rem;
+    font-size: .9rem;
     overflow-wrap: break-word; 
   }
 }
 @media only screen and (max-width: 850px)  {
   .wrapper{
-    width: 90vw;
+    width: 70vw;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 4px;
   }
   .container{
     width: calc(50% - 60px);
-    height: 20vmin;
+    height: 16vmin;
     font-size: 10px;
-    border-bottom: 8px solid var(--navhover);
+    border-bottom: 7px solid var(--navhover);
+  }
+  .staty{
+    padding: 2vh 0;
   }
   .container i{
     font-size: 1.5rem;
@@ -615,6 +652,7 @@ span.text{
     flex-wrap: wrap;
     gap: 10px;
   }
+
   .container{
     width: calc(50% - 60px);
     height: 20vmin;
@@ -650,8 +688,9 @@ span.text{
   font-size: 2rem;
   border-bottom: 3px solid var(--navhover);
   width: 30%;
-  margin: 4vh auto ;
-  padding-bottom: 1vh;
+  margin: 0 auto ;
+  padding-bottom: .5vh;
+  margin-bottom: 1vh;
 }
 .wrapper-oferty{
   justify-content: space-around;
@@ -726,6 +765,12 @@ span.text{
   .oferty span{
     font-size: 28px;
   }
+  .oferty h2, .sponsorzy h2{
+    font-size: 25px;
+  }
+  .parent1 {
+    padding: 4vh;
+    }
 }
 @media only screen and (max-width: 1100px)  {
   .oferty p{
@@ -738,12 +783,13 @@ span.text{
   .oferty span{
     font-size: 24px;
   }
-  .oferty h2, .sponsorzy h2{
-    font-size: 26px;
-    width: 80%;
-  }
+
   .oferty{
     height: 65vh;
+  }
+  .oferty h2, .sponsorzy h2{
+    font-size: 20px;
+    width: 40%;
   }
 }
 @media only screen and (max-width: 1000px)  {
@@ -756,6 +802,9 @@ span.text{
   .oferty{
     height: 62vh;
   }
+  .parent1 {
+    padding: 3vh;
+    }
 }
 @media only screen and (max-width: 850px)  {
   #oferta3{
@@ -767,6 +816,13 @@ span.text{
   .oferta{
     width: 40vw;
   }
+  .oferty h2, .sponsorzy h2{
+    font-size: 16px;
+    width: 50%;
+  }
+  .parent1 {
+    padding: 2vh;
+    }
 }
 @media only screen and (max-width: 550px)  {
   #oferta2{
@@ -781,6 +837,11 @@ span.text{
   .oferta{
     width: 60vw;
   }
+  .oferty h2, .sponsorzy h2{
+    font-size: 16px;
+    width: 50%;
+  }
+
 }
 
 /*-----------------------------stopka-----------------------------------------*/
@@ -858,6 +919,7 @@ footer .logo{
   }
   footer {
     font-size: .65rem;
+    margin-top: 8vh;
   }
 }
 @media only screen and (max-width: 800px)  {
@@ -872,14 +934,21 @@ footer .logo{
       text-align: center;
     }
     footer{
-      height: 35vh;
+      height: 30vh;
+      margin-top: 6vh;
     }
+}
+@media only screen and (max-width: 600px)  {
+  footer{
+    height: 25vh;
+    margin-top: 4vh;
+  }
 }
 .sponsorzy img{
   width: 100%;
 }
 .sponsorzy{
-  width: 80%;
-  margin:  5vh auto;
+  width: 90%;
+  margin:  0vh auto;
 
 }
