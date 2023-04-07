@@ -234,9 +234,8 @@ function potwierdz($kod){
         $conn->query('UPDATE uzytkownicy SET potwierdzony = 1 where login="'.$wynik['login'].'"');
         $conn->query('UPDATE potwierdzenia SET uzytkownik = NULL where uzytkownik="'.$wynik['login'].'"');
         return 'Konto zostało potwierdzone pomyślnie!';
-    }
-    else{
-        return $wynik;
+    }else{
+        return 'Błędny kod potwierdzenia skontaktuj się z administratorem.';
     }
 }
 ?>
