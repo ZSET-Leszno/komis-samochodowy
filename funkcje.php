@@ -229,7 +229,7 @@ function najnowsze(){
 }
 function potwierdz($kod){
     $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
-    $wynik = $conn->query('SELECT *, uzytkownicy.login as login, uzytkownicy.potwierdzony FROM potwierdzenia JOIN uzytkownicy on potwierdzenia.uzytkownik=uzytkownicy.login where kod="'.$kod.'"')->fetch_assoc()[0];
+    $wynik = $conn->query('SELECT *, uzytkownicy.login as login, uzytkownicy.potwierdzony FROM potwierdzenia JOIN uzytkownicy on potwierdzenia.uzytkownik=uzytkownicy.login where kod="'.$kod.'"')->fetch_assoc();
     if($wynik){
         $conn->query('UPDATE uzytkownicy SET potwierdzony = 1 where login="'.$wynik['login'].'"');
         $conn->query('UPDATE potwierdzenia SET uzytkownik = NULL where uzytkownik="'.$wynik['login'].'"');
