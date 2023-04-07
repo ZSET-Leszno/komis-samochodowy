@@ -16,7 +16,7 @@
                         echo "Potwierdź swój adres e-mail klikając w link który ci wysłaliśmy.";
                     }
                     if(isset($_GET['p'])){
-                        echo potwierdz();
+                        echo potwierdz($_GET['p']);
                     }
                     if(isset($_POST['login'])){
                         echo logowanie($_POST['login'], $_POST['haslo']);
