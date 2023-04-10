@@ -956,20 +956,95 @@ footer .logo{
   height: 100vh;
 }
 .filtry{
-  height: 20%;
   font-family: Poetsen;
-  width: 90%;
+  width: 80%;
   margin: 10vh auto 0 auto;
-  border-bottom: #c4b45b solid 4px;
 }
 .filter{
-  width: 10%;
+  width: 25%;
+  height: 8vh;
   float: left;
   text-align: left;
+  margin-bottom:1vh;
 }
 .filter h4{
-  margin: 0;
+  margin-bottom: 10px;
+}
+.filter select{
+  width: 90%;
+  height: 3vh;
+  cursor: pointer;
+  font-family: Poetsen;
+  font-weight: 100;
+  color: grey;
+  border: solid 1px grey;
+  border-radius: 5px;
 }
 .filter input{
   width: 45%;
+  height: 3vh;
+  font-family: Poetsen;
+  font-weight: 100;
+  color: grey;
+  border: solid 1px grey;
+  border-radius: 5px;
+}
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+@media only screen and (max-width: 940px)  {
+  .filter{
+    width: 33%;
+    height: 5vh;
+  }
+  .filter h4{
+    margin: 5px 0;
+    font-size: .8rem;
+  }
+  .filter select{
+    height: 2vh;
+    font-size: .7rem;
+  }
+  .filter input{
+    height: 2vh;
+    font-size: .7rem;
+  }
+}
+@media only screen and (max-width: 500px)  {
+  .filtry{
+    margin-top: 12vh;
+  }
+  .filter{
+    width: 33%;
+    height: 4vh;
+  }
+  .filter h4{
+    margin: 2px 0;
+    font-size: .6rem;
+  }
+  .filter select{
+    height: 1.8vh;
+    font-size: .5rem;
+  }
+  .filter input{
+    height: 1.8vh;
+    font-size: .5rem;
+  }
+}
+@media only screen and (max-width: 370px)  {
+  .filter h4{
+    margin: 1px 0;
+    font-size: .5rem;
+  }
+}
+.oferty-auta{
+  height: 70vh;
+  width: 90%;
+  margin: 3vh 5% 0 5%;
+  border-top: #c4b45b solid 4px;
+  float: left;
 }
