@@ -952,3 +952,24 @@ footer .logo{
   margin:  0vh auto;
 
 }
+.lista{
+  height: 100vh;
+}
+.filtry{
+  height: 20%;
+  font-family: Poetsen;
+  width: 90%;
+  margin: 10vh auto 0 auto;
+  border-bottom: #c4b45b solid 4px;
+}
+.filter{
+  width: 10%;
+  float: left;
+  text-align: left;
+}
+.filter h4{
+  margin: 0;
+}
+.filter input{
+  width: 45%;
+}
