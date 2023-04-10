@@ -45,7 +45,7 @@ function navbar(){
             <input type="checkbox" class="nav-toggle" id="nav-toggle">
             <nav>
                 <ul>
-                    <li><a href="#">Strona Główna</a></li>
+                    <li><a href="index.php">Strona Główna</a></li>
                     <li><a href="oferty.php">Oferty</a></li>
                     <li><a href="#">Sprzedaj</a></li>
                     <li><a href="#">O nas</a></li>
