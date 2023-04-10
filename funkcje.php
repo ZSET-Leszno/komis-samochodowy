@@ -48,7 +48,7 @@ function navbar(){
                     <li><a href="index.php">Strona Główna</a></li>
                     <li><a href="oferty.php">Oferty</a></li>
                     <li><a href="#">Sprzedaj</a></li>
-                    <li><a href="#">O nas</a></li>
+                    <li><a href="onas.php">O nas</a></li>
                     <li>'.$przycisk.'</li>
                   </ul>
             </nav>
