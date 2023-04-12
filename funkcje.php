@@ -152,7 +152,7 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             $maail->setFrom('speedyinfo@spoko.pl'); /* adres e-mail i nazwa nadawcy */
             $maail->AddAddress($mail); /* adres lub adresy odbiorców */
             $maail->Subject = "SpeedyMotors potwierdzenie rejestracji"; /* Tytuł wiadomości */
-            $maail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: https://detailing69.tk/logowanie.php?p=$kod";
+            $maail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: 158.101.171.163/logowanie.php?p=$kod";
 
             if(!$maail->Send()) {
             $error= "Błąd wysyłania e-maila: " . $maail->ErrorInfo;
