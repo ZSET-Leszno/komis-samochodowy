@@ -1066,6 +1066,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
   justify-content: center;
   padding: 30px;
+  border-right: #c4b45b solid 5px;
 }
 .firma p{
   font-weight: 100;
@@ -1088,16 +1089,41 @@ input::-webkit-inner-spin-button {
   height: 50%;
   width: 50%;
   float: left;
+  padding: 15px;
 }
 .mapka{
   height: 50%;
   width: 50%;
   float: left;
   background:url(loader.gif) center center no-repeat;
-  
+  border-right: #c4b45b solid 5px;
+  padding: 15px;
 
 }
 iframe{
   width: 100%;
   height: 100%;
+}
+.firma2{
+  width: 50%;
+  float: left;
+  font-family: Poetsen;
+  text-align: center;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.firma2 p{
+  font-weight: 100;
+  color: #464646;
+}
+.firma2 h2{
+  color: #c4b45b;
+  font-family: Poetsen;
+  font-weight: 300;
+  width: 50%;
+  margin: auto;
+  text-align: center;
 }
