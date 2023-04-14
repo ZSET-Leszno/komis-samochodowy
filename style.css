@@ -1093,6 +1093,8 @@ input::-webkit-inner-spin-button {
   height: 50%;
   width: 50%;
   float: left;
+  background:url(loader.gif) center center no-repeat;
+  
 
 }
 iframe{
