@@ -142,17 +142,17 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             $maail->IsSMTP();
             $maail->CharSet="UTF-8";
             $maail->Host = "smtp.gmail.com"; /* Zależne od hostingu poczty*/
-            $maail->SMTPDebug = 0;
+            $maail->SMTPDebug = 2;
             $maail->Port = 587 ; /* Zależne od hostingu poczty, czasem 587 */
             $maail->SMTPSecure = 'tsl'; /* Jeżeli ma być aktywne szyfrowanie SSL */
             $maail->SMTPAuth = true;
             $maail->IsHTML(true);
             $maail->Username = "speedymotorsinfo@gmail.com"; /* login do skrzynki email często adres*/
             $maail->Password = "lahshfschlwtdwxy"; /* Hasło do poczty */
-            $maail->setFrom('speedyinfo@spoko.pl'); /* adres e-mail i nazwa nadawcy */
+            $maail->setFrom('speedymotorsinfo@gmail.com'); /* adres e-mail i nazwa nadawcy */
             $maail->AddAddress($mail); /* adres lub adresy odbiorców */
             $maail->Subject = "SpeedyMotors potwierdzenie rejestracji"; /* Tytuł wiadomości */
-            $maail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: https://detailing69.tk/logowanie.php?p=$kod";
+            $maail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: 158.101.171.163/logowanie.php?p=$kod";
 
             if(!$maail->Send()) {
             $error= "Błąd wysyłania e-maila: " . $maail->ErrorInfo;
