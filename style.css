@@ -1048,4 +1048,54 @@ input::-webkit-inner-spin-button {
   border-top: #c4b45b solid 4px;
   float: left;
 }
+.main-onas{
+  width: 90%;
+  margin: 10vh auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  text-align: center;
+  height: 80vh;
+}
+.firma{
+  width: 50%;
+  float: left;
+  font-family: Poetsen;
+  text-align: center;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.firma p{
+  font-weight: 100;
+  color: #464646;
+}
+.firma h2{
+  color: #c4b45b;
+  font-family: Poetsen;
+  font-weight: 300;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+.firma-foto{
+  background-image: url(firma.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: center;
+  height: 50%;
+  width: 50%;
+  float: left;
+}
+.mapka{
+  height: 50%;
+  width: 50%;
+  float: left;
 
+}
+iframe{
+  width: 100%;
+  height: 100%;
+}

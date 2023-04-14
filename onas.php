@@ -2,12 +2,26 @@
     require('funkcje.php');
     echo navbar();
 ?>
-<div class="main">
-    <div class="tresc">
-        1
+<div class="main-onas">
+    <div class="firma">
+        <div class="firma-text">
+           <h2>Kim jesteśmy?</h2>
+            <p>Speedy Motors jest rodzinną firmą z tradycjami, która od 2022 roku zajmuje się sprzedażą aut. <br>Z pasją wybieramy wyselekcjonowane egzemplarze, z pełną historią serwisową oraz gwarancją bezwypadkowości. Przed zakupem każdego auta jego stan techniczny poddajemy dokładnej analizie, sprawdzamy powłokę lakierniczą, odwiedzamy stację diagnostyczną, wszystko po to, aby nasz Klient był w pełni usatysfakcjonowany z zakupionego u nas pojazdu.</div>
+        </div>
+    <div class="firma-foto">
     </div>
+    <div class="mapka">
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d629457.8866614322!2d16.470124294069965!3d51.95547616862436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4705bd542b432ec3%3A0xd30ec24fde7c25fa!2sAuto%20Komis!5e0!3m2!1spl!2spl!4v1681459275978!5m2!1spl!2spl" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="firma">
+        <div class="firma-text">
+           <h2>Gdzie nas znajdziesz?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro fugiat ea iusto aliquid blanditiis debitis beatae temporibus, magni similique cum odit iure consectetur molestias, quia ipsam corrupti dolore amet a!</p>
+
+            </div>
+        </div>
 </div>
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9858.93248236701!2d16.57177556752154!3d51.847569582543!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47059820222c6b5f%3A0x7a95ff5af2307cfe!2sZesp%C3%B3%C5%82%20Szk%C3%B3%C5%82%20Elektroniczno-Telekomunikacyjnych!5e0!3m2!1spl!2sus!4v1681167331114!5m2!1spl!2sus" width="100%" height="200%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 <?php
     echo stopka();
