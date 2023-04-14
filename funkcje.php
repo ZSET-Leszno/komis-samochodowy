@@ -169,7 +169,7 @@ function logowanie($login, $haslo){
     $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
     if(($conn->query(sprintf("SELECT count(id_uzytkownika) from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0]) && password_verify($haslo, ($conn->query(sprintf("SELECT haslo from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0])))
     {
-        if($conn->query(sprintf("SELECT potwierdzony from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0]){
+        if($conn->query(sprintf("SELECT potwierdzony from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0]==0){
             return "Aby się zalogować musisz potwierdzić swój adres e-mail.";
         }
         else{
