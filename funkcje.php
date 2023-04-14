@@ -142,7 +142,7 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             $maail->IsSMTP();
             $maail->CharSet="UTF-8";
             $maail->Host = "smtp.gmail.com"; /* Zależne od hostingu poczty*/
-            $maail->SMTPDebug = 2;
+            $maail->SMTPDebug = 0;
             $maail->Port = 587 ; /* Zależne od hostingu poczty, czasem 587 */
             $maail->SMTPSecure = 'tsl'; /* Jeżeli ma być aktywne szyfrowanie SSL */
             $maail->SMTPAuth = true;
@@ -169,10 +169,15 @@ function logowanie($login, $haslo){
     $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
     if(($conn->query(sprintf("SELECT count(id_uzytkownika) from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0]) && password_verify($haslo, ($conn->query(sprintf("SELECT haslo from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0])))
     {
-        $_SESSION['login']=$login;
-        $_SESSION['id']=$conn->query(sprintf("SELECT id_uzytkownika from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0];
-        header("Location: index.php");
-        return "elegancja i tak tego nie widać";
+        if($conn->query(sprintf("SELECT potwierdzony from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0]){
+            return "Aby się zalogować musisz potwierdzić swój adres e-mail.";
+        }
+        else{
+            $_SESSION['login']=$login;
+            $_SESSION['id']=$conn->query(sprintf("SELECT id_uzytkownika from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0];
+            header("Location: index.php");
+            return "elegancja i tak tego nie widać";
+        }
     }
     else{
         return 'Błędny login lub hasło';
