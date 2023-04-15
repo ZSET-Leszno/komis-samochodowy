@@ -243,4 +243,117 @@ function potwierdz($kod){
         return 'Błędny kod potwierdzenia skontaktuj się z administratorem.';
     }
 }
+function filtruj(){
+    $str='SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel, kolor.id_koloru, kolor.kolor as rkolor, pochodzenie.id_kraju, pochodzenie.kraj AS rpochodzenie, stan.id_stanu, stan.stan_auta as rstan FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model INNER JOIN kolor ON kolor.id_koloru=samochody.kolor INNER JOIN pochodzenie ON pochodzenie.id_kraju=samochody.pochodzenie INNER JOIN stan ON stan.id_stanu=samochody.stan where 1';
+    //marka
+    if($_GET['marka']!=''){
+        $str.=' and marka.id_marki="'.$_GET['marka'].'"';
+    }
+    //model
+    if(isset($_GET['model'])&&$_GET['model']!=''){
+        $str.=' and model.id_modelu="'.$_GET['model'].'"';
+    }
+    //rok produkcji
+    if(isset($_GET['min_rok'])&&isset($_GET['max_rok'])&&$_GET['min_rok']!=''&&$_GET['max_rok']!=''){
+        $str.=' and rok_produkcji between '.$_GET['min_rok'].' and '.$_GET['max_rok'];
+    }elseif(isset($_GET['min_rok'])&&isset($_GET['max_rok'])&&$_GET['min_rok']==''&&$_GET['max_rok']!=''){
+        $str.=' and rok_produkcji <= '.$_GET['max_rok'];
+    }elseif(isset($_GET['min_rok'])&&isset($_GET['max_rok'])&&$_GET['min_rok']!=''&&$_GET['max_rok']==''){
+        $str.=' and rok_produkcji >= '.$_GET['min_rok'];
+    }
+    //cena
+    if(isset($_GET['min_cena'])&&isset($_GET['max_cena'])&&$_GET['min_cena']!=''&&$_GET['max_cena']!=''){
+        $str.=' and cena between '.$_GET['min_cena'].' and '.$_GET['max_cena'];
+    }elseif(isset($_GET['min_cena'])&&isset($_GET['max_cena'])&&$_GET['min_cena']==''&&$_GET['max_cena']!=''){
+        $str.=' and cena <= '.$_GET['max_cena'];
+    }elseif(isset($_GET['min_cena'])&&isset($_GET['max_cena'])&&$_GET['min_cena']!=''&&$_GET['max_cena']==''){
+        $str.=' and cena >= '.$_GET['min_cena'];
+    }
+    //pojemność silnika
+    if(isset($_GET['min_silnik'])&&isset($_GET['max_silnik'])&&$_GET['min_silnik']!=''&&$_GET['max_silnik']!=''){
+        $str.=' and pojemnosc_silnika between '.$_GET['min_silnik'].' and '.$_GET['max_silnik'];
+    }elseif(isset($_GET['min_silnik'])&&isset($_GET['max_silnik'])&&$_GET['min_silnik']==''&&$_GET['max_silnik']!=''){
+        $str.=' and pojemnosc_silnika <= '.$_GET['max_silnik'];
+    }elseif(isset($_GET['min_silnik'])&&isset($_GET['max_silnik'])&&$_GET['min_silnik']!=''&&$_GET['max_silnik']==''){
+        $str.=' and pojemnosc_silnika >= '.$_GET['min_silnik'];
+    }
+    //kolor
+    if(isset($_GET['kolor'])&&$_GET['kolor']!=''){
+        $str.=' and kolor.id_koloru="'.$_GET['kolor'].'"';
+    }
+    //przebieg
+    if(isset($_GET['min_przebieg'])&&isset($_GET['max_przebieg'])&&$_GET['min_przebieg']!=''&&$_GET['max_przebieg']!=''){
+        $str.=' and przebieg between '.$_GET['min_przebieg'].' and '.$_GET['max_przebieg'];
+    }elseif(isset($_GET['min_przebieg'])&&isset($_GET['max_przebieg'])&&$_GET['min_przebieg']==''&&$_GET['max_przebieg']!=''){
+        $str.=' and przebieg <= '.$_GET['max_przebieg'];
+    }elseif(isset($_GET['min_przebieg'])&&isset($_GET['max_przebieg'])&&$_GET['min_przebieg']!=''&&$_GET['max_przebieg']==''){
+        $str.=' and przebieg >= '.$_GET['min_przebieg'];
+    }
+    //stan
+    if(isset($_GET['stan'])&&$_GET['stan']!=''){
+        $str.=' and stan.id_stanu="'.$_GET['stan'].'"';
+    }
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    if($wynik=$conn->query($str)){
+        if(($wynik->num_rows)==0){
+            echo 'Przepraszamy, ale nie znaleziono samochodów o podanych kryteriach';
+        }
+        while($tablica=$wynik->fetch_assoc()){
+        $zdjecia=explode(';', $tablica['foto']);
+        echo '
+            <br>Tytuł: '.$tablica['tytul'].'<br>
+            '.$zdjecia[0].'<br>
+            <b>'.$tablica["rmarka"].' '.$tablica['rmodel'].'</b><br>
+            '.$tablica['rkolor'].' '.$tablica['rpochodzenie'].' '.$tablica['rstan'].'<br>
+            Przebieg: '.$tablica['przebieg'].' '.$tablica['rok_produkcji'].' Moc: '.$tablica['moc'].'<br>
+            '.$tablica['rpaliwo'].' Pojemność: '.$tablica['pojemnosc_silnika'].'<br>
+            Cena: '.$tablica['cena'].'<br><b>KONIEC</b>
+        ';
+        }
+    }
+    else{
+        echo $conn->error;
+    }
+    $conn->close();
+}
+function marki(){
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    $str='';
+    $query=$conn->query('SELECT * FROM marka');
+    while($wynik=$query->fetch_assoc()){
+        $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where marka="'.$wynik['id_marki'].'"')->fetch_array()[0];
+        $str.='<option value="'.$wynik['id_marki'].'">'.$wynik['nazwa'].' ('.$ilosc.')</option>';
+    }
+    return $str;
+}
+function modele(){
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    $str='<option value="">Wszystkie</option>';
+    $query=$conn->query('SELECT * FROM model where id_marki="'.$_GET['model'].'"');
+    while($wynik=$query->fetch_assoc()){
+        $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where model="'.$wynik['id_modelu'].'" limit 15')->fetch_array()[0];
+        $str.='<option value="'.$wynik['id_modelu'].'">'.$wynik['nazwa'].' ('.$ilosc.')</option>';
+    }
+    echo $str;
+}
+function kolory(){
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    $str='';
+    $query=$conn->query('SELECT * FROM kolor');
+    while($wynik=$query->fetch_assoc()){
+        $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where kolor="'.$wynik['id_koloru'].'"')->fetch_array()[0];
+        $str.='<option value="'.$wynik['id_koloru'].'">'.$wynik['kolor'].' ('.$ilosc.')</option>';
+    }
+    return $str;
+}
+function stany(){
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    $str='';
+    $query=$conn->query('SELECT * FROM stan');
+    while($wynik=$query->fetch_assoc()){
+        $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where stan="'.$wynik['id_stanu'].'"')->fetch_array()[0];
+        $str.='<option value="'.$wynik['id_stanu'].'">'.$wynik['stan_auta'].' ('.$ilosc.')</option>';
+    }
+    return $str;
+}
 ?>
