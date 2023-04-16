@@ -6,7 +6,7 @@
     <div class="firma">
         <div class="firma-text">
            <h2>Kim jesteśmy?</h2>
-            <p>Speedy Motors jest rodzinną firmą z tradycjami, która od 2022 roku zajmuje się sprzedażą aut. <br>Z pasją wybieramy wyselekcjonowane egzemplarze, z pełną historią serwisową oraz gwarancją bezwypadkowości. Przed zakupem każdego auta jego stan techniczny poddajemy dokładnej analizie, sprawdzamy powłokę lakierniczą, odwiedzamy stację diagnostyczną, wszystko po to, aby nasz Klient był w pełni usatysfakcjonowany z zakupionego u nas pojazdu.</div>
+            <p>Speedy Motors jest rodzinną firmą z tradycjami, która od 2022 roku zajmuje się sprzedażą aut. Z pasją wybieramy wyselekcjonowane egzemplarze, z pełną historią serwisową oraz gwarancją bezwypadkowości. Przed zakupem każdego auta jego stan techniczny poddajemy dokładnej analizie, sprawdzamy powłokę lakierniczą, odwiedzamy stację diagnostyczną, wszystko po to, aby nasz Klient był w pełni usatysfakcjonowany z zakupionego u nas pojazdu.</div>
         </div>
     <div class="firma-foto">
     </div>
@@ -17,7 +17,13 @@
     <div class="firma2">
         <div class="firma-text">
            <h2>Gdzie nas znajdziesz?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro fugiat ea iusto aliquid blanditiis debitis beatae temporibus, magni similique cum odit iure consectetur molestias, quia ipsam corrupti dolore amet a!</p>
+            <p>Nasz komis znajduje się w Lesznie na ulicy Szybkiej 34B przy wylocie na drogę S5.<br><br>
+                Godziny otwarcia:<br>
+                    09:00-18:00 - Poniedziałek- Piątek<br>
+                    09:00-15:00 - Sobota<br>
+                    11:00-14:00 - Niedziela<br>
+
+                    </p>
 
             </div>
         </div>

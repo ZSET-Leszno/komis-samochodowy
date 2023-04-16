@@ -1050,7 +1050,7 @@ input::-webkit-inner-spin-button {
 }
 .main-onas{
   width: 90%;
-  margin: 10vh auto;
+  margin: 12vh auto 0 auto;
   background-color: rgb(255, 255, 255);
   border-radius: 30px;
   text-align: center;
@@ -1060,7 +1060,6 @@ input::-webkit-inner-spin-button {
   width: 50%;
   float: left;
   font-family: Poetsen;
-  text-align: center;
   height: 50%;
   display: flex;
   align-items: center;
@@ -1076,12 +1075,13 @@ input::-webkit-inner-spin-button {
   color: #c4b45b;
   font-family: Poetsen;
   font-weight: 300;
-  width: 50%;
+  width: 80%;
   margin: auto;
   text-align: center;
 }
 .firma-foto{
   background-image: url(firma.jpg);
+
   background-size:cover;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -1089,7 +1089,7 @@ input::-webkit-inner-spin-button {
   height: 50%;
   width: 50%;
   float: left;
-  padding: 15px;
+  border-top-right-radius: 30px;
 }
 .mapka{
   height: 50%;
@@ -1097,18 +1097,17 @@ input::-webkit-inner-spin-button {
   float: left;
   background:url(loader.gif) center center no-repeat;
   border-right: #c4b45b solid 5px;
-  padding: 15px;
-
 }
 iframe{
   width: 100%;
   height: 100%;
+  border-bottom-left-radius: 30px;
 }
 .firma2{
   width: 50%;
   float: left;
   font-family: Poetsen;
-  text-align: center;
+
   height: 50%;
   display: flex;
   align-items: center;
@@ -1123,7 +1122,53 @@ iframe{
   color: #c4b45b;
   font-family: Poetsen;
   font-weight: 300;
-  width: 50%;
+  width: 80%;
   margin: auto;
   text-align: center;
+}
+@media only screen and (max-width: 1220px)  {
+  .firma h2{
+    font-size: 1.1rem;
+  }
+  .firma2 h2{
+    font-size: 1.1rem;
+  }
+  .firma2 p{
+    font-size: .8rem;
+    text-align: left;
+  }
+  .firma p{
+    font-size: .8rem;
+    text-align: left;
+  }
+}
+@media only screen and (max-width: 750px)  {
+  .firma h2{
+    font-size: 1rem;
+  }
+  .firma2 h2{
+    font-size: 1rem;
+  }
+  .firma2 p{
+    font-size: .7rem;
+  }
+  .firma p{
+    font-size: .7rem;
+  }
+}
+@media only screen and (max-width: 550px)  {
+  .firma2 p{
+    font-size: .6rem;
+  }
+  .firma p{
+    font-size: .6rem;
+  }
+}
+@media only screen and (max-width: 550px)  {
+  .firma2 p{
+    font-size: .6rem;
+  }
+  .firma p{
+    font-size: .5rem;
+  }
 }
