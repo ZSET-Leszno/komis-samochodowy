@@ -24,7 +24,7 @@ function navbar(){
     }
     return '
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="pl">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,7 +62,7 @@ function navbar(){
 function navlogowanie(){
     return '
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="pl">
     <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -301,13 +301,25 @@ function filtruj(){
         while($tablica=$wynik->fetch_assoc()){
         $zdjecia=explode(';', $tablica['foto']);
         echo '
-            <br>Tytuł: '.$tablica['tytul'].'<br>
-            '.$zdjecia[0].'<br>
-            <b>'.$tablica["rmarka"].' '.$tablica['rmodel'].'</b><br>
-            '.$tablica['rkolor'].' '.$tablica['rpochodzenie'].' '.$tablica['rstan'].'<br>
-            Przebieg: '.$tablica['przebieg'].' '.$tablica['rok_produkcji'].' Moc: '.$tablica['moc'].'<br>
-            '.$tablica['rpaliwo'].' Pojemność: '.$tablica['pojemnosc_silnika'].'<br>
-            Cena: '.$tablica['cena'].'<br><b>KONIEC</b>
+        <div class="auta-card">
+            <div class="auta-image" style="background-image:url(img/'.$zdjecia[0].');"></div>
+            <div class="auta-info">
+                <h2>'.$tablica['tytul'].'</h2>
+                <section>
+                    <ul>
+                        <li><span>'.$tablica['rok_produkcji'].'</span></li>
+                        <li><span>'.number_format($tablica['przebieg'], 0, '.', ' ').' km</span></li>
+                    </ul>
+                    <ul>
+                        <li><span>'.$tablica['rpaliwo'].'</span></li>
+                        <li><span>'.$tablica['pojemnosc_silnika'].' cm3</span></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="auto-cena">
+                <p>'.number_format($tablica['cena'], 0, '.', ' ').' zł</p>
+            </div>
+        </div>
         ';
         }
     }
@@ -329,10 +341,15 @@ function marki(){
 function modele(){
     $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
     $str='<option value="">Wszystkie</option>';
-    $query=$conn->query('SELECT * FROM model where id_marki="'.$_GET['model'].'"');
+    $query=$conn->query('SELECT model.nazwa, model.id_modelu, model.id_marki, COUNT(id_samochodu) as ilosc from model LEFT join samochody on model.id_modelu=samochody.model where id_marki="'.$_GET['model'].'" GROUP BY model.id_modelu ORDER by ilosc DESC;');
     while($wynik=$query->fetch_assoc()){
-        $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where model="'.$wynik['id_modelu'].'" limit 15')->fetch_array()[0];
+        $ilosc=$wynik['ilosc'];
+        if($ilosc){
         $str.='<option value="'.$wynik['id_modelu'].'">'.$wynik['nazwa'].' ('.$ilosc.')</option>';
+        }
+        else{
+            $str.='<option value="'.$wynik['id_modelu'].'">'.$wynik['nazwa'].'</option>';
+        }
     }
     echo $str;
 }
@@ -342,7 +359,7 @@ function kolory(){
     $query=$conn->query('SELECT * FROM kolor');
     while($wynik=$query->fetch_assoc()){
         $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where kolor="'.$wynik['id_koloru'].'"')->fetch_array()[0];
-        $str.='<option value="'.$wynik['id_koloru'].'">'.$wynik['kolor'].' ('.$ilosc.')</option>';
+        $str.='<option value="'.$wynik['id_koloru'].'">'.$wynik['kolor'].'</option>';
     }
     return $str;
 }
@@ -352,7 +369,7 @@ function stany(){
     $query=$conn->query('SELECT * FROM stan');
     while($wynik=$query->fetch_assoc()){
         $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where stan="'.$wynik['id_stanu'].'"')->fetch_array()[0];
-        $str.='<option value="'.$wynik['id_stanu'].'">'.$wynik['stan_auta'].' ('.$ilosc.')</option>';
+        $str.='<option value="'.$wynik['id_stanu'].'">'.$wynik['stan_auta'].'</option>';
     }
     return $str;
 }

@@ -38,7 +38,7 @@
                 <h4>Kolor:</h4>
                 <select name="kolor" onMouseOut="filtr('marka='+document.getElementById('filter-marka').value+'&model='+document.getElementById('filter-model').value+'&min_rok='+document.getElementById('min_rok').value+'&max_rok='+document.getElementById('max_rok').value+'&min_cena='+document.getElementById('min_cena').value+'&max_cena='+document.getElementById('max_cena').value+'&min_silnik='+document.getElementById('min_silnik').value+'&max_silnik='+document.getElementById('max_silnik').value+'&min_przebieg='+document.getElementById('min_przebieg').value+'&max_przebieg='+document.getElementById('max_przebieg').value+'&kolor='+document.getElementById('filter-kolor').value+'&stan='+document.getElementById('filter-kolor stan').value)" id="filter-kolor">
                     <option value="" selected disabled hidden>-Wszystkie-</option>
-                    <option>Wszystkie</option>
+                    <option value="">Wszystkie</option>
                     <?php echo kolory();?>
                 </select>
             </div>
@@ -51,7 +51,7 @@
                 <h4>Stan techniczny:</h4>
                 <select name="stan" onMouseOut="filtr('marka='+document.getElementById('filter-marka').value+'&model='+document.getElementById('filter-model').value+'&min_rok='+document.getElementById('min_rok').value+'&max_rok='+document.getElementById('max_rok').value+'&min_cena='+document.getElementById('min_cena').value+'&max_cena='+document.getElementById('max_cena').value+'&min_silnik='+document.getElementById('min_silnik').value+'&max_silnik='+document.getElementById('max_silnik').value+'&min_przebieg='+document.getElementById('min_przebieg').value+'&max_przebieg='+document.getElementById('max_przebieg').value+'&kolor='+document.getElementById('filter-kolor').value+'&stan='+document.getElementById('filter-kolor stan').value)" id="filter-kolor stan">
                     <option value="" selected disabled hidden>-Wszystkie-</option>
-                    <option>Wszystkie</option>
+                    <option value="">Wszystkie</option>
                     <?php echo stany();?>
  
                 </select>
@@ -60,8 +60,8 @@
         <div class="clear">
 
         </div>
-        <div class="oferty-auta" id="txtHint">
-            <div class="auta">
+        <div class="oferty-auta">
+            <div class="auta" id="txtHint">
                 <div class="auta-card">
                     <div class="auta-image" style="background-image:url(img/1_1.webp);"></div>
                     <div class="auta-info">
