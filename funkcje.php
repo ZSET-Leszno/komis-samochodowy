@@ -154,7 +154,14 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             $maail->setFrom('speedymotorsinfo@gmail.com'); /* adres e-mail i nazwa nadawcy */
             $maail->AddAddress($mail); /* adres lub adresy odbiorców */
             $maail->Subject = "SpeedyMotors potwierdzenie rejestracji"; /* Tytuł wiadomości */
-            $maail->Body = "Dziekujemy za utworzenie konta w naszym serwisie.<br>Aby potwierdzić rejestrację wejdź w ten link: 158.101.171.163/logowanie.php?p=$kod";
+            $maail->Body = 
+            '
+            <div style="background-color:#363636; border-radius:15px; color:#ffff; padding:20px 40px">
+                <h2 style="color:#ffff; text-align:center; border-bottom: 3px solid #c4b45b; font-size:26px;">Dziekujemy za utworzenie konta w naszym serwisie.</h2><br>
+                 Aby potwierdzić rejestrację wejdź w ten link:<b>158.101.171.163/logowanie.php?p=$kod</b> 
+            
+            '
+            ;
 
             if(!$maail->Send()) {
             $error= "Błąd wysyłania e-maila: " . $maail->ErrorInfo;
