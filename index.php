@@ -8,12 +8,97 @@
         <div class="div2">  <p>Auta już od 3999 zł</p></div>
         <div class="div3">  <p>Satysfakcja gwarantowana</p></div>
     </div>
-   
+    <div class="sponsorzy">
+    <h2>Najnowsze</h2>
+    </div>
+    <div class="oferty-auta" id="txtHint">
+            <div class="auta">
+                <div class="auta-card" onclick="location.href = 'oferty.php'">
+                    <div class="auta-image" style="background-image:url(img/2_1.webp);"></div>
+                    <div class="auta-info">
+                        <h2>Women leather bag</h2>
+                        <section>
+                            <ul>
+                                <li><span>2015</span></li>
+                                <li><span>200 000 km</span></li>
+                            </ul>
+                            <ul>
+                                <li><span>Benzyna</span></li>
+                                <li><span>2955 cm3</span></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="auto-cena">
+                        <p>60 000 zł</p>
+                    </div>
+                </div>
+
+
+                <div class="auta-card">
+                    <div class="auta-image" style="background-image:url(img/3_1.webp);"></div>
+                    <div class="auta-info">
+                        <h2>Women leather bag</h2>
+                        <section>
+                            <ul>
+                                <li><span>2015</span></li>
+                                <li><span>200 000 km</span></li>
+                            </ul>
+                            <ul>
+                                <li><span>Benzyna</span></li>
+                                <li><span>2955 cm3</span></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="auto-cena">
+                        <p>1 000 zł</p>
+                    </div>
+                </div>
+                <div class="auta-card przedostatni">
+                    <div class="auta-image" style="background-image:url(img/4_1.webp);"></div>
+                    <div class="auta-info">
+                        <h2>Women leather bag</h2>
+                        <section>
+                            <ul>
+                                <li><span>2015</span></li>
+                                <li><span>200 000 km</span></li>
+                            </ul>
+                            <ul>
+                                <li><span>Benzyna</span></li>
+                                <li><span>2955 cm3</span></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="auto-cena">
+                        <p>40000 zł</p>
+                    </div>
+                </div>
+                <div class="auta-card ostatni">
+                    <div class="auta-image" style="background-image:url(img/5_1.webp);"></div>
+                    <div class="auta-info">
+                        <h2>Women leather bag</h2>
+                        <section>
+                            <ul>
+                                <li><span>2015</span></li>
+                                <li><span>200 000 km</span></li>
+                            </ul>
+                            <ul>
+                                <li><span>Benzyna</span></li>
+                                <li><span>2955 cm3</span></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="auto-cena">
+                        <p>40000 zł</p>
+                    </div>
+                </div>
+
+	        </div>
+        </div>
 <?php 
 //najnowsze();
 ?>
 
- <!-- <button class="guzik2" onclick="location.href = 'oferty.php'">Zobacz wszystkie</button> -->
+  <button class="guzik2" onclick="location.href = 'oferty.php'">Zobacz wszystkie</button>
 
     <div class="staty">
     <div class="wrapper">
