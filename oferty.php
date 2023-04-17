@@ -96,7 +96,7 @@ function modele(){
       xhttp.send();
     }
     else{
-        document.getElementById('default').selected=true;
+        document.getElementById('filter-model').value="";
         document.getElementById('filter-model').disabled=true;
     }
 }

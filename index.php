@@ -15,10 +15,8 @@
             <div class="auta">
                 <?php najnowsze();?>
 	        </div>
-        </div>
-<?php 
-//najnowsze();
-?>
+    </div>
+
 
   <button class="guzik2" onclick="location.href = 'oferty.php'">Zobacz wszystkie</button>
 

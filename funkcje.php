@@ -117,20 +117,20 @@ function stopka(){
 }
 function rejestracja($login, $mail, $haslo, $powtorz_haslo){
     if($haslo!=$powtorz_haslo){
-        return "Hasła muszą być identyczne";
+        return '<span id="zle">Hasła muszą być identyczne</span>';
     }
     elseif(strlen($haslo)<8){
-        return "Hasło musi mieć przynajmniej 8 znaków!";
+        return '<span id="zle">Hasło musi mieć przynajmniej 8 znaków!</span>';
     }
     else{
         $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
         if($conn->query(sprintf("SELECT count(id_uzytkownika) from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0])
         {
-            return "Login jest już zajęty";
+            return '<span id="zle">Login jest już zajęty</span>';
         }
         elseif($conn->query(sprintf("SELECT count(id_uzytkownika) from uzytkownicy where email='%s'", mysqli_real_escape_string($conn,$mail)))->fetch_array()[0])    
         {
-            return "Istnieje już konto dla podanego adresu e-mail";
+            return '<span id="zle">Istnieje już konto dla podanego adresu e-mail</span>';
         }
         else{
             $kod=generator();
@@ -161,7 +161,7 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             } else {
                 $conn->query(sprintf("INSERT INTO uzytkownicy VALUES (NULL, '%s', '%s', '".password_hash($haslo, PASSWORD_DEFAULT)."', '', '', '', '0')", mysqli_real_escape_string($conn,$mail), mysqli_real_escape_string($conn,$login)));
                 header("Location: logowanie.php?r=1");
-                return "Rejestracja udana";
+                return '<span id="dobre">Rejestracja udana</span>';
             }
         }
         $conn->close();
@@ -172,7 +172,7 @@ function logowanie($login, $haslo){
     if(($conn->query(sprintf("SELECT count(id_uzytkownika) from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0]) && password_verify($haslo, ($conn->query(sprintf("SELECT haslo from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0])))
     {
         if($conn->query(sprintf("SELECT potwierdzony from uzytkownicy where login='%s'", mysqli_real_escape_string($conn,$login)))->fetch_array()[0]==0){
-            return "Aby się zalogować musisz potwierdzić swój adres e-mail.";
+            return '<span id="zle">Aby się zalogować musisz potwierdzić swój adres e-mail.</span>';
         }
         else{
             $_SESSION['login']=$login;
@@ -182,7 +182,7 @@ function logowanie($login, $haslo){
         }
     }
     else{
-        return 'Błędny login lub hasło';
+        return '<span id="zle">Błędny login lub hasło!</span>';
     }
     $conn->close();
 }
@@ -202,6 +202,30 @@ function najnowsze(){
         if($i==4){
             echo '
             <div class="auta-card ostatni" onclick="location.href = \'auto-szczegoly.php\'">
+                <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
+                <div class="auta-info">
+                    <h2>'.$w['tytul'].'</h2>
+                    <section>
+                        <ul>
+                            <li><span>'.$w['rok_produkcji'].'</span></li>
+                            <li><span>'.number_format($w['przebieg'], 0, '.', ' ').' km</span></li>
+                        </ul>
+                        <ul>
+                            <li><span>'.$w['rpaliwo'].'</span></li>
+                            <li><span>'.$w['pojemnosc_silnika'].' cm3</span></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="auto-cena">
+                    <p>'.number_format($w['cena'], 0, '.', ' ').' zł</p>
+                </div>
+            </div>
+            ';
+            $i++;
+        }
+        elseif($i==3){
+            echo '
+            <div class="auta-card przedostatni" onclick="location.href = \'auto-szczegoly.php\'">
                 <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
                 <div class="auta-info">
                     <h2>'.$w['tytul'].'</h2>
@@ -257,9 +281,9 @@ function potwierdz($kod){
     if($wynik){
         $conn->query('UPDATE uzytkownicy SET potwierdzony = 1 where login="'.$wynik['login'].'"');
         $conn->query('UPDATE potwierdzenia SET uzytkownik = NULL where uzytkownik="'.$wynik['login'].'"');
-        return 'Konto zostało potwierdzone pomyślnie!';
+        return '<span id="dobre">Konto zostało potwierdzone pomyślnie!</span>';
     }else{
-        return 'Błędny kod potwierdzenia skontaktuj się z administratorem.';
+        return '<span id="zle">Błędny kod potwierdzenia skontaktuj się z administratorem.</span>';
     }
 }
 function filtruj(){
@@ -441,7 +465,7 @@ function sprzedaj(){
     if(!$maail->Send()) {
     $error= "Błąd wysyłania e-maila: " . $maail->ErrorInfo;
     } else {
-        return "Wiadomość została wysłana. Skontaktujemy się z tobą wkrótce.";
+        return '<span id="dobre">Wiadomość została wysłana. Skontaktujemy się z tobą wkrótce.</span>';
     }
 }
 ?>

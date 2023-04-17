@@ -696,7 +696,7 @@ span.text{
   font-weight: 200;
   font-size: 2rem;
   border-bottom: 3px solid var(--navhover);
-  width: 30%;
+  width: 50%;
   margin: 0 auto ;
   padding-bottom: .5vh;
   margin-bottom: 1vh;
@@ -885,7 +885,6 @@ footer h4{
 }
 .srodkowy{
   width: 30vw;
-  height: 30vh;
   border:0;
   margin: 0;
   padding: 0px;
@@ -1474,17 +1473,24 @@ text-align: center;
     font-size: 8px;
   }
 }
+.foty-auta{
+  width: 100%;
+  margin: 0;
+  display: flex;
+}
 .zdjecia {
+  width: 60%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  height: 50vh;
-  width: 50%;
-
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  height: 70vh;
   }
-  
+  .opis-auta{
+    width: 40%;
+    font-family: Poetsen;
+  }
   .zdjecie1 { 
     grid-area: 1 / 1 / 5 / 5; 
     background-size:cover;
@@ -1528,4 +1534,36 @@ text-align: center;
     padding-bottom: 3%;
     text-align: center;
     padding: 50px;
+  }
+  #dobre{
+    color: greenyellow;
+  }
+  #zle{
+    color: red;
+  }
+
+  .tabelka{
+    margin: 5vh auto 2vh auto;
+    width: 80%;
+    text-align: left;
+    font-size: 16px;
+  }
+  .tabela-naglowek{
+    font-weight: 100;
+  }
+  .tabela-wartosc{
+    font-weight: 100;
+    color: #8d8d8d;
+  }
+  .opis-auta p{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    border-top: #c4b45b 4px solid;
+    padding-top: 10px;
+    color: #363636;
+  }
+  .polecane-auta{
+    margin-top: 10vh;
+    width: 100%;
   }
