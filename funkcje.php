@@ -150,7 +150,7 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             $maail->SMTPAuth = true;
             $maail->IsHTML(true);
             $maail->Username = "speedymotorsinfo@gmail.com"; /* login do skrzynki email często adres*/
-            $maail->Password = "lahshfschlwtdwxy"; /* Hasło do poczty */
+            $maail->Password = "yughfpmtczvlazhw"; /* Hasło do poczty */
             $maail->setFrom('speedymotorsinfo@gmail.com'); /* adres e-mail i nazwa nadawcy */
             $maail->AddAddress($mail); /* adres lub adresy odbiorców */
             $maail->Subject = "SpeedyMotors potwierdzenie rejestracji"; /* Tytuł wiadomości */
@@ -426,7 +426,7 @@ function sprzedaj(){
     $maail->SMTPAuth = true;
     $maail->IsHTML(true);
     $maail->Username = "speedymotorsinfo@gmail.com"; /* login do skrzynki email często adres*/
-    $maail->Password = "lahshfschlwtdwxy"; /* Hasło do poczty */
+    $maail->Password = "yughfpmtczvlazhw"; /* Hasło do poczty */
     $maail->setFrom('speedymotorsinfo@gmail.com'); /* adres e-mail i nazwa nadawcy */
     $maail->AddAddress('speedymotorsinfo@gmail.com'); /* adres lub adresy odbiorców */
     $maail->Subject = "Nowe ogłoszenie sprzedaży"; /* Tytuł wiadomości */
