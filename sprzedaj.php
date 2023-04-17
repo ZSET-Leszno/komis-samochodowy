@@ -21,7 +21,7 @@
     <input id="oferta-przycisk" type="submit" value="Prześlij ofertę sprzedaży">
     </div>
     </form>
-    <?php echo sprzedaj();?>
+    <?php if(isset($_POST['marka'])){echo sprzedaj();}?>
     </div>
 </div>
 <?php
