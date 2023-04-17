@@ -3,7 +3,8 @@
     echo navbar();
 ?>
 <div class="main-szczegoly">
-    
+    <?php echo szczegoly();?>
+
     <div class="polecane-auta" id="txtHint">
     <div class="sponsorzy">
     <h2>Podobne propozycje</h2>
