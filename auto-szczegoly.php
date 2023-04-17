@@ -3,7 +3,7 @@
     echo navbar();
 ?>
 <div class="main-szczegoly">
-    <?php echo szczegoly();?>
+    <?php if(isset($_GET['auto'])){ echo szczegoly();}?>
     
     
     <div class="polecane-auta" id="txtHint">

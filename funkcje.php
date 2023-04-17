@@ -455,13 +455,13 @@ function sprzedaj(){
     $maail->Subject = "Nowe ogłoszenie sprzedaży"; /* Tytuł wiadomości */
     $maail->Body = 
     '
-    <div style="background-color:#363636; border-radius:15px;">
-    <h2 style="color:#ffff; text-align:center; font-size:26px;">Użytkownik <span style="color:#c4b45b;">'.$_SESSION['login'].'</span> wysłał nową ofertę sprzedaży.</h2><br>
-    <h4>Szczegóły oferty:</h4><br>
+    <div style="background-color:#363636; border-radius:15px; color:#ffff; padding:20px 40px">
+    <h2 style="color:#ffff; text-align:center; border-bottom: 3px solid #c4b45b; font-size:26px;">Użytkownik <span style="color:#c4b45b;">'.$_SESSION['login'].'</span> wysłał nową ofertę sprzedaży.</h2><br>
+    <h4>Szczegóły oferty:</h4>
     <b>Samochód:</b> '.$_POST['marka'].' '.$_POST['model'].'<br>
     <b>Moc:</b> '.$_POST['moc'].' Rok: '.$_POST['rok'].'<br>
     <b>Pojemność:</b> '.$_POST['pojemnosc'].'<br>
-    <h3>Proponowana cena'.$_POST['cenka'].' PLN</>
+    <h3>Proponowana cena: <span style="color:#c4b45b;">'.$_POST['cenka'].'</span> PLN</>
     </div>
     
     ';
