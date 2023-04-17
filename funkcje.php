@@ -479,8 +479,5 @@ function sprzedaj(){
         return '<span id="dobre">Wiadomość została wysłana. Skontaktujemy się z tobą wkrótce.</span>';
     }
 }
-function szczegoly(){
-    if(isset(''))
-    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
-}
+
 ?>
