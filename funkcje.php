@@ -192,24 +192,31 @@ function niewchodzic(){
 }
 function najnowsze(){
     $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
-    $wynik=$conn->query('SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model order by id_samochodu asc limit 4;');
+    $wynik=$conn->query('SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model order by id_samochodu desc limit 4;');
     $wynik->fetch_assoc();
     $i=1;
     foreach($wynik as $w){
         $zdj=explode(";", $w['foto']);
-        if($i==1){
+        if($i==4){
             echo '
-            <div class="oferty" id="oferta1">
-            <h2>Wybrane dla Ciebie</h2>
-            <div class="wrapper-oferty" >
-            <div class="oferta">
-            <a href="#">
-                <div class="oferta-foto" style="background-image: url(img/'.$zdj[0].')"></div>
-                <h4>'.$w['tytul'].'</h4>
-                <p> '.$w['rmarka'].' • '.$w['rmodel'].' <br>
-                '.$w['rok_produkcji'].' • '.$w['przebieg'].' km • '.$w['rpaliwo'].' • '.$w['pojemnosc_silnika'].' cm3</p>
-                <span>'.$w['cena'].' PLN</span>
-            </a>
+            <div class="auta-card ostatni" onclick="location.href = .\'oferty.php.\'">
+                <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
+                <div class="auta-info">
+                    <h2>'.$w['tytul'].'</h2>
+                    <section>
+                        <ul>
+                            <li><span>'.$w['rok_produkcji'].'</span></li>
+                            <li><span>'.number_format($w['przebieg'], 0, '.', ' ').' km</span></li>
+                        </ul>
+                        <ul>
+                            <li><span>'.$w['rpaliwo'].'</span></li>
+                            <li><span>'.$w['pojemnosc_silnika'].' cm3</span></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="auto-cena">
+                    <p>'.number_format($w['cena'], 0, '.', ' ').' zł</p>
+                </div>
             </div>
             ';
             $i++;
@@ -217,14 +224,24 @@ function najnowsze(){
         else{
             $zdj=explode(";", $w['foto']);
             echo '
-            <div class="oferta" id="oferta'.$i.'">
-            <a href="#">
-            <div class="oferta-foto" style="background-image: url(img/'.$zdj[0].')"></div>
-            <h4>'.$w['tytul'].'</h4>
-            <p> '.$w['rmarka'].' • '.$w['rmodel'].' <br>
-            '.$w['rok_produkcji'].' • '.$w['przebieg'].' km • '.$w['rpaliwo'].' • '.$w['pojemnosc_silnika'].' cm3</p>
-            <span>'.$w['cena'].' PLN</span>
-            </a> 
+            <div class="auta-card" onclick="location.href = .\'oferty.php.\'">
+                <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
+                <div class="auta-info">
+                    <h2>'.$w['tytul'].'</h2>
+                    <section>
+                        <ul>
+                            <li><span>'.$w['rok_produkcji'].'</span></li>
+                            <li><span>'.number_format($w['przebieg'], 0, '.', ' ').' km</span></li>
+                        </ul>
+                        <ul>
+                            <li><span>'.$w['rpaliwo'].'</span></li>
+                            <li><span>'.$w['pojemnosc_silnika'].' cm3</span></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="auto-cena">
+                    <p>'.number_format($w['cena'], 0, '.', ' ').' zł</p>
+                </div>
             </div>
             ';
             $i++;
@@ -246,7 +263,7 @@ function potwierdz($kod){
 function filtruj(){
     $str='SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel, kolor.id_koloru, kolor.kolor as rkolor, pochodzenie.id_kraju, pochodzenie.kraj AS rpochodzenie, stan.id_stanu, stan.stan_auta as rstan FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model INNER JOIN kolor ON kolor.id_koloru=samochody.kolor INNER JOIN pochodzenie ON pochodzenie.id_kraju=samochody.pochodzenie INNER JOIN stan ON stan.id_stanu=samochody.stan where 1';
     //marka
-    if($_GET['marka']!=''){
+    if(isset($_GET['marka'])&&$_GET['marka']!=''){
         $str.=' and marka.id_marki="'.$_GET['marka'].'"';
     }
     //model
