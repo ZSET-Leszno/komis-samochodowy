@@ -425,6 +425,7 @@ function stany(){
 function ilosc_aut(){
     $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
     $ilosc=$conn->query('SELECT count(id_samochodu) as ilosc from samochody')->fetch_array();
+    $conn->close();
     return $ilosc['ilosc'];
 }
 function zalogowani(){
@@ -452,7 +453,19 @@ function sprzedaj(){
     $maail->setFrom('speedymotorsinfo@gmail.com'); /* adres e-mail i nazwa nadawcy */
     $maail->AddAddress('speedymotorsinfo@gmail.com'); /* adres lub adresy odbiorców */
     $maail->Subject = "Nowe ogłoszenie sprzedaży"; /* Tytuł wiadomości */
-    $maail->Body = 'Użytkownik '.$_SESSION['login'].' wysłał nową ofertę sprzedaży.<br>
+    $maail->Body = 
+    '
+    <style>
+    h2{
+    color: #c4b45b;
+    font-size: 28px;
+    text-align: center;
+    }
+    </style>
+    
+    
+    
+    <h2>Użytkownik '.$_SESSION['login'].' wysłał nową ofertę sprzedaży.</h2><br>
     Szczegóły oferty:<br>
     Marka: '.$_POST['marka'].' '.$_POST['model'].'<br>
     Moc: '.$_POST['moc'].' Rok: '.$_POST['rok'].'<br>
@@ -465,5 +478,9 @@ function sprzedaj(){
     } else {
         return '<span id="dobre">Wiadomość została wysłana. Skontaktujemy się z tobą wkrótce.</span>';
     }
+}
+function szczegoly(){
+    if(isset(''))
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
 }
 ?>
