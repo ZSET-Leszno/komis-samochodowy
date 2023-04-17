@@ -420,7 +420,7 @@ function sprzedaj(){
     $maail->IsSMTP();
     $maail->CharSet="UTF-8";
     $maail->Host = "smtp.gmail.com"; /* Zależne od hostingu poczty*/
-    $maail->SMTPDebug = 0;
+    $maail->SMTPDebug = 2;
     $maail->Port = 587 ; /* Zależne od hostingu poczty, czasem 587 */
     $maail->SMTPSecure = 'tsl'; /* Jeżeli ma być aktywne szyfrowanie SSL */
     $maail->SMTPAuth = true;
