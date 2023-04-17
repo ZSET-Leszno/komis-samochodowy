@@ -26,7 +26,7 @@
     <div class="wrapper">
         <div class="container">
         <i class="fa-solid fa-car-rear"></i>
-        <span class="num" data-val="95">0</span>
+        <span class="num" data-val="<?php echo ilosc_aut(); ?>">0</span>
         <span class="text">Aut w ofercie</span>
         </div>
         <div class="container">

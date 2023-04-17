@@ -18,9 +18,11 @@ function generator(){
 function navbar(){
     if(isset($_SESSION['id'])){
         $przycisk='<a href="logowanie.php">'.$_SESSION['login'].'</a>';
+        $sell='<li><a href="sprzedaj.php">Sprzedaj</a></li>';
     }
     else{
         $przycisk='<a href="logowanie.php">Zaloguj/Zarejestruj się</a>';
+        $sell='';
     }
     return '
     <!DOCTYPE html>
@@ -47,7 +49,7 @@ function navbar(){
                 <ul>
                     <li><a href="index.php">Strona Główna</a></li>
                     <li><a href="oferty.php">Oferty</a></li>
-                    <li><a href="sprzedaj.php">Sprzedaj</a></li>
+                    '.$sell.'
                     <li><a href="onas.php">O nas</a></li>
                     <li>'.$przycisk.'</li>
                   </ul>
@@ -199,7 +201,7 @@ function najnowsze(){
         $zdj=explode(";", $w['foto']);
         if($i==4){
             echo '
-            <div class="auta-card ostatni" onclick="location.href = .\'oferty.php.\'">
+            <div class="auta-card ostatni" onclick="location.href = \'auto-szczegoly.php\'">
                 <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
                 <div class="auta-info">
                     <h2>'.$w['tytul'].'</h2>
@@ -224,7 +226,7 @@ function najnowsze(){
         else{
             $zdj=explode(";", $w['foto']);
             echo '
-            <div class="auta-card" onclick="location.href = .\'oferty.php.\'">
+            <div class="auta-card" onclick="location.href = \'oferty.php\'">
                 <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
                 <div class="auta-info">
                     <h2>'.$w['tytul'].'</h2>
@@ -351,8 +353,13 @@ function marki(){
     $query=$conn->query('SELECT * FROM marka');
     while($wynik=$query->fetch_assoc()){
         $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where marka="'.$wynik['id_marki'].'"')->fetch_array()[0];
-        $str.='<option value="'.$wynik['id_marki'].'">'.$wynik['nazwa'].' ('.$ilosc.')</option>';
+        $selected='';
+        if($_GET['marka']==$wynik['id_marki']){
+            $selected='selected';
+        }
+        $str.='<option '.$selected.' value="'.$wynik['id_marki'].'">'.$wynik['nazwa'].' ('.$ilosc.')</option>';
     }
+    $conn->close();
     return $str;
 }
 function modele(){
@@ -368,6 +375,7 @@ function modele(){
             $str.='<option value="'.$wynik['id_modelu'].'">'.$wynik['nazwa'].'</option>';
         }
     }
+    $conn->close();
     echo $str;
 }
 function kolory(){
@@ -378,6 +386,7 @@ function kolory(){
         $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where kolor="'.$wynik['id_koloru'].'"')->fetch_array()[0];
         $str.='<option value="'.$wynik['id_koloru'].'">'.$wynik['kolor'].'</option>';
     }
+    $conn->close();
     return $str;
 }
 function stany(){
@@ -388,6 +397,51 @@ function stany(){
         $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where stan="'.$wynik['id_stanu'].'"')->fetch_array()[0];
         $str.='<option value="'.$wynik['id_stanu'].'">'.$wynik['stan_auta'].'</option>';
     }
+    $conn->close();
     return $str;
+}
+function ilosc_aut(){
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    $ilosc=$conn->query('SELECT count(id_samochodu) as ilosc from samochody')->fetch_array();
+    return $ilosc['ilosc'];
+}
+function zalogowani(){
+    if(!isset($_SESSION['id'])){
+        header("Location: index.php");
+    }
+}
+function sprzedaj(){
+    require("/etc/PHPMailer/PHPMailer/src/PHPMailer.php");
+    require("/etc/PHPMailer/PHPMailer/src/SMTP.php");
+    require("/etc/PHPMailer/PHPMailer/src/Exception.php");
+
+    $maail = new PHPMailer\PHPMailer\PHPMailer();
+
+    $maail->IsSMTP();
+    $maail->CharSet="UTF-8";
+    $maail->Host = "smtp.gmail.com"; /* Zależne od hostingu poczty*/
+    $maail->SMTPDebug = 0;
+    $maail->Port = 587 ; /* Zależne od hostingu poczty, czasem 587 */
+    $maail->SMTPSecure = 'tsl'; /* Jeżeli ma być aktywne szyfrowanie SSL */
+    $maail->SMTPAuth = true;
+    $maail->IsHTML(true);
+    $maail->Username = "speedymotorsinfo@gmail.com"; /* login do skrzynki email często adres*/
+    $maail->Password = "lahshfschlwtdwxy"; /* Hasło do poczty */
+    $maail->setFrom('speedymotorsinfo@gmail.com'); /* adres e-mail i nazwa nadawcy */
+    $maail->AddAddress('speedymotorsinfo@gmail.com'); /* adres lub adresy odbiorców */
+    $maail->Subject = "Nowe ogłoszenie sprzedaży"; /* Tytuł wiadomości */
+    $maail->Body = 'Użytkownik '.$_SESSION['login'].' wysłał nową ofertę sprzedaży.<br>
+    Szczegóły oferty:<br>
+    Marka: '.$_POST['marka'].' '.$_POST['model'].'<br>
+    Moc: '.$_POST['moc'].' Rok: '.$_POST['rok'].'<br>
+    Pojemność: '.$_POST['pojemnosc'].'<br>
+    <b>'.$_POST['cenka'].' PLN</b>
+    ';
+
+    if(!$maail->Send()) {
+    $error= "Błąd wysyłania e-maila: " . $maail->ErrorInfo;
+    } else {
+        return "Wiadomość została wysłana. Skontaktujemy się z tobą wkrótce.";
+    }
 }
 ?>

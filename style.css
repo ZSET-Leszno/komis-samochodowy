@@ -957,7 +957,7 @@ footer .logo{
   width: 100%;
 }
 .sponsorzy{
-  width: 90%;
+  width: 80%;
   margin:  0vh auto;
 
 }
@@ -1194,7 +1194,7 @@ iframe{
 	display: flex;
 	flex-direction: column;
   width: calc(25% - 20px);
-  background: #f0f0f0;
+  background: #fdfdfd;
   box-shadow: 0 2px 7px #444444;
   margin: 10px;
   border-radius: 10px;
@@ -1204,7 +1204,7 @@ iframe{
 }
 .auta-card:hover{
   border: var(--navhover) 2px solid;
-  background-color: #c9c9c9;
+  background-color: #f0f0f0;
 }
 
 .auta-image{
@@ -1363,51 +1363,169 @@ iframe{
   text-align: center;
 }
 .formularz{
-  text-align: left;
-  margin-top: 20vh;
-  margin-bottom:20vh;
-  padding-bottom: 1.5rem;
-  padding-right: 3rem;
-  padding-left: 3rem;
+  text-align: center !important;
+  margin:15vh auto 0 auto;
   width: 50%;
-  margin-left: 25%;
   border-radius: 20px;
   border: solid 4px #c4b45b;
   font-family: Poetsen;
   font-weight: 100;
 }
 .form{
-padding-top: 20vh;
-padding: 10px;
-font-size: 18px;
-
+margin:5vh auto;
+width: 70%;
+text-align: center;
+}
+.form h1{
+  margin-bottom: 5vh;
+  width: 100%;
 }
 .sell{
   padding: 8px;
   border-radius: 20px;
   border: 1px solid #c4b45b;
-  width: 70%;
-  float: right;
-  margin-right: 5%;
+  width: 80%;
+  margin-top: 10px;
+  text-align: left;
+  padding-left: 20px;
+  font-family: Poetsen;
+}
+.srodkujacy{
+  text-align: center;
 }
 #oferta-przycisk{
   border: 1px solid #c4b45b;
-  margin-left: 30%;
-  margin-top: 1.5rem;
-  padding: 8px;
-  width: 40%;
+  padding: 15px;
+  width: 50%;
   border-radius: 20px;
   background-color: #c4b45b;
   font-family: Poetsen;
   color: white;
   font-weight: 100;
+  text-align: center;
 }
 #oferta-przycisk:hover{
   background-color: #b6a752;
   cursor: pointer;
 }
 .potwierdzenie{
-  font-size: 12px;
+  font-size: 15px;
   text-align: left;
-  float: none;
+  width: 80%;
+  margin: 30px auto;
 }
+.potwierdzenie span{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 1300px)  {
+  .formularz{
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 800px)  {
+  .form h1{
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  .form span{
+    font-size: 12px;
+  }
+  .form{
+    width: 80%;
+  }
+  #oferta-przycisk{
+    padding: 15px;
+    width: 60%;
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 550px)  {
+  .form h1{
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  .form span{
+    font-size: 12px;
+  }
+  .form{
+    width: 80%;
+  }
+  #oferta-przycisk{
+    padding: 20px;
+    width: 70%;
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 450px)  {
+  .form h1{
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  .form span{
+    font-size: 10px;
+  }
+  .form{
+    width: 90%;
+  }
+  #oferta-przycisk{
+    padding: 15px;
+    width: 80%;
+    font-size: 8px;
+  }
+}
+.zdjecia {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  height: 50vh;
+  width: 50%;
+
+  }
+  
+  .zdjecie1 { 
+    grid-area: 1 / 1 / 5 / 5; 
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: center;
+  }
+  .zdjecie2 { 
+    grid-area: 1 / 5 / 2 / 6; 
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: center;
+  }
+  .zdjecie3 { 
+    grid-area: 2 / 5 / 3 / 6; 
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: center;
+  }
+  .zdjecie4 { 
+    grid-area: 3 / 5 / 4 / 6; 
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: center;
+  }
+  .zdjecie5 { 
+    grid-area: 4 / 5 / 5 / 6; 
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: center;
+  }
+  .main-szczegoly{
+    width: 90%;
+    margin: 15vh auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding-bottom: 3%;
+    text-align: center;
+    padding: 50px;
+  }
