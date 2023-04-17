@@ -1254,3 +1254,55 @@ iframe{
 .auto-cena p{
   margin: 10px;
 }
+.formularz h1{
+  text-align: center;
+}
+.formularz{
+  text-align: left;
+  margin-top: 20vh;
+  margin-bottom:20vh;
+  padding-bottom: 1.5rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  width: 50%;
+  margin-left: 25%;
+  border-radius: 20px;
+  border: solid 4px #c4b45b;
+  font-family: Poetsen;
+  font-weight: 100;
+}
+.form{
+padding-top: 20vh;
+padding: 10px;
+font-size: 18px;
+
+}
+.sell{
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #c4b45b;
+  width: 70%;
+  float: right;
+  margin-right: 5%;
+}
+#oferta-przycisk{
+  border: 1px solid #c4b45b;
+  margin-left: 30%;
+  margin-top: 1.5rem;
+  padding: 8px;
+  width: 40%;
+  border-radius: 20px;
+  background-color: #c4b45b;
+  font-family: Poetsen;
+  color: white;
+  font-weight: 100;
+}
+#oferta-przycisk:hover{
+  background-color: #b6a752;
+  cursor: pointer;
+}
+.potwierdzenie{
+  font-size: 12px;
+  text-align: left;
+  float: none;
+}
