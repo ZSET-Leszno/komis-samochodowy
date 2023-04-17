@@ -455,8 +455,8 @@ function sprzedaj(){
     $maail->Subject = "Nowe ogłoszenie sprzedaży"; /* Tytuł wiadomości */
     $maail->Body = 
     '
-    <div style="background-color:#7e7e7e; border-radius:25px;">
-    <h2 style="color:#c4b45b; text-align:center; font-size:26px;">Użytkownik '.$_SESSION['login'].' wysłał nową ofertę sprzedaży.</h2><br>
+    <div style="background-color:#363636; border-radius:15px;">
+    <h2 style="color:#ffff; text-align:center; font-size:26px;">Użytkownik <span style="color:#c4b45b;">'.$_SESSION['login'].'</span> wysłał nową ofertę sprzedaży.</h2><br>
     <h4>Szczegóły oferty:</h4><br>
     <b>Samochód:</b> '.$_POST['marka'].' '.$_POST['model'].'<br>
     <b>Moc:</b> '.$_POST['moc'].' Rok: '.$_POST['rok'].'<br>
@@ -478,7 +478,7 @@ function szczegoly(){
         $tablica=$conn->query('SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel, kolor.id_koloru, kolor.kolor as rkolor, pochodzenie.id_kraju, pochodzenie.kraj AS rpochodzenie, stan.id_stanu, stan.stan_auta as rstan FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model INNER JOIN kolor ON kolor.id_koloru=samochody.kolor INNER JOIN pochodzenie ON pochodzenie.id_kraju=samochody.pochodzenie INNER JOIN stan ON stan.id_stanu=samochody.stan where id_samochodu="'.$_GET['auto'].'"');
         $w=$tablica->fetch_assoc();
         $zdjecia=explode(';', $w['foto']);
-        echo '
+        return '
         <div class="kontener">
             <div class="zdjecia">
                 <div class="zdjecie1" style="background-image: url(img/'.$zdjecia[0].');">1</div>
@@ -535,7 +535,7 @@ function szczegoly(){
         </div>
         ';
     }else{
-        echo 'błąd';
+        return 'błąd';
     }
 }
 ?>

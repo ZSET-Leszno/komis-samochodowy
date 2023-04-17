@@ -3,7 +3,7 @@
     echo navbar();
 ?>
 <div class="main-szczegoly">
-    <?php szczegoly();?>
+    <?php echo szczegoly();?>
     
     
     <div class="polecane-auta" id="txtHint">
