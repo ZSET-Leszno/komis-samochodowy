@@ -8,12 +8,19 @@
         <div class="div2">  <p>Auta już od 3999 zł</p></div>
         <div class="div3">  <p>Satysfakcja gwarantowana</p></div>
     </div>
-   
+    <div class="sponsorzy">
+    <h2>Najnowsze</h2>
+    </div>
+    <div class="oferty-auta" id="txtHint">
+            <div class="auta">
+                <?php najnowsze();?>
+	        </div>
+        </div>
 <?php 
 //najnowsze();
 ?>
 
- <!-- <button class="guzik2" onclick="location.href = 'oferty.php'">Zobacz wszystkie</button> -->
+  <button class="guzik2" onclick="location.href = 'oferty.php'">Zobacz wszystkie</button>
 
     <div class="staty">
     <div class="wrapper">
