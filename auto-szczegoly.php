@@ -3,7 +3,7 @@
     echo navbar();
 ?>
 <div class="main-szczegoly">
-    <div class="foty-auta">
+    <div class="kontener">
         <div class="zdjecia">
             <div class="zdjecie1" style="background-image: url(img/10_1.webp);">1</div>
             <div class="zdjecie2" style="background-image: url(img/10_2.webp);">1</div>
@@ -61,6 +61,8 @@
         </div>
 
     </div>
+    
+    
     <div class="polecane-auta" id="txtHint">
     <div class="sponsorzy">
     <h2>Podobne propozycje</h2>

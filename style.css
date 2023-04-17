@@ -827,7 +827,7 @@ span.text{
   }
   .oferty h2, .sponsorzy h2{
     font-size: 16px;
-    width: 50%;
+    width: 70%;
   }
   .parent1 {
     padding: 2vh;
@@ -848,7 +848,7 @@ span.text{
   }
   .oferty h2, .sponsorzy h2{
     font-size: 16px;
-    width: 50%;
+    width: 80%;
   }
 
 }
@@ -1474,8 +1474,6 @@ text-align: center;
   }
 }
 .foty-auta{
-  width: 100%;
-  margin: 0;
   display: flex;
 }
 .zdjecia {
@@ -1534,6 +1532,7 @@ text-align: center;
     padding-bottom: 3%;
     text-align: center;
     padding: 50px;
+
   }
   #dobre{
     color: greenyellow;
@@ -1566,4 +1565,87 @@ text-align: center;
   .polecane-auta{
     margin-top: 10vh;
     width: 100%;
+  }
+  .kontener{
+    display: flex;
+    flex-wrap: wrap
+  }
+  @media only screen and (max-width: 1300px)  {
+    .zdjecia{
+      width: 100%;
+      height: 50vh;
+      margin: auto;
+    }
+    .opis-auta{
+      width: 100%;
+      display: flex;
+      margin-top: 5vh;
+    }
+    .tabelka{
+      width: 40%;
+      margin: 0;
+    }
+    .opis-auta p{
+      width: 60%;
+      margin: 0;
+    }
+    .opis-auta h2{
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 900px)  {
+    .zdjecia{
+      height: 40vh;
+    }
+    .opis-auta{
+      margin-top: 5vh;
+    }
+    .tabelka, .opis-auta p{
+      font-size: 12px;
+    }
+    .polecane-auta{
+      margin-top: 8vh;
+    }
+  }
+  @media only screen and (max-width: 650px)  {
+    .zdjecia{
+      height: 35vh;
+    }
+    .opis-auta{
+      margin-top: 4vh;
+    }
+    .tabelka, .opis-auta p{
+      font-size: 11px;
+    }
+    .polecane-auta{
+      margin-top: 5vh;
+    }
+  }
+  @media only screen and (max-width: 600px)  {
+    .zdjecia{
+      height: 30vh;
+    }
+    .opis-auta{
+      margin-top: 4vh;
+    }
+    .tabelka, .opis-auta p{
+      font-size: 11px;
+    }
+    .polecane-auta{
+      margin-top: 5vh;
+    }
+  }
+  @media only screen and (max-width: 520px)  {
+    .zdjecia{
+      height: 25vh;
+    }
+    .opis-auta{
+      margin-top: 3vh;
+    }
+    .tabelka, .opis-auta p{
+      font-size: 9px;
+    }
+    .polecane-auta{
+      margin-top: 3vh;
+    }
   }

@@ -1,6 +1,6 @@
 <?php
     require('funkcje.php');
-    //zalogowani();
+    zalogowani();
     echo navbar();
 ?>
 <div class="formularz">

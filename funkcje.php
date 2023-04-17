@@ -407,7 +407,6 @@ function kolory(){
     $str='';
     $query=$conn->query('SELECT * FROM kolor');
     while($wynik=$query->fetch_assoc()){
-        $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where kolor="'.$wynik['id_koloru'].'"')->fetch_array()[0];
         $str.='<option value="'.$wynik['id_koloru'].'">'.$wynik['kolor'].'</option>';
     }
     $conn->close();
@@ -418,7 +417,6 @@ function stany(){
     $str='';
     $query=$conn->query('SELECT * FROM stan');
     while($wynik=$query->fetch_assoc()){
-        $ilosc=$conn->query('SELECT count(id_samochodu) FROM samochody where stan="'.$wynik['id_stanu'].'"')->fetch_array()[0];
         $str.='<option value="'.$wynik['id_stanu'].'">'.$wynik['stan_auta'].'</option>';
     }
     $conn->close();
