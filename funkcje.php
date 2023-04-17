@@ -456,7 +456,7 @@ function sprzedaj(){
     $maail->Body = 
     '
     <div style="background-color:#7e7e7e;">
-    <h2 style="color:#c4b45b;">Użytkownik '.$_SESSION['login'].' wysłał nową ofertę sprzedaży.</h2><br>
+    <h2 style="color:#c4b45b; text-align:center; font-size:26px;">Użytkownik '.$_SESSION['login'].' wysłał nową ofertę sprzedaży.</h2><br>
     <h4>Szczegóły oferty:</h4><br>
     <b>Samochód:</b> '.$_POST['marka'].' '.$_POST['model'].'<br>
     <b>Moc:</b> '.$_POST['moc'].' Rok: '.$_POST['rok'].'<br>
