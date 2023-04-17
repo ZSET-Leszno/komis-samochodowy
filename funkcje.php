@@ -201,7 +201,7 @@ function najnowsze(){
         $zdj=explode(";", $w['foto']);
         if($i==4){
             echo '
-            <div class="auta-card ostatni" onclick="location.href = \'auto-szczegoly.php\'">
+            <div class="auta-card ostatni" onclick="location.href = \'auto-szczegoly.php?auto='.$w['id_samochodu'].'\'">
                 <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
                 <div class="auta-info">
                     <h2>'.$w['tytul'].'</h2>
@@ -225,7 +225,7 @@ function najnowsze(){
         }
         elseif($i==3){
             echo '
-            <div class="auta-card przedostatni" onclick="location.href = \'auto-szczegoly.php\'">
+            <div class="auta-card przedostatni" onclick="location.href = \'auto-szczegoly.php?auto='.$w['id_samochodu'].'\'">
                 <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
                 <div class="auta-info">
                     <h2>'.$w['tytul'].'</h2>
@@ -250,7 +250,7 @@ function najnowsze(){
         else{
             $zdj=explode(";", $w['foto']);
             echo '
-            <div class="auta-card" onclick="location.href = \'oferty.php\'">
+            <div class="auta-card" onclick="location.href = \'auto-szczegoly.php?auto='.$w['id_samochodu'].'\'">
                 <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
                 <div class="auta-info">
                     <h2>'.$w['tytul'].'</h2>
@@ -344,7 +344,7 @@ function filtruj(){
         while($tablica=$wynik->fetch_assoc()){
         $zdjecia=explode(';', $tablica['foto']);
         echo '
-        <div class="auta-card">
+        <div class="auta-card" onclick="location.href = \'auto-szczegoly.php?auto='.$tablica['id_samochodu'].'\'">
             <div class="auta-image" style="background-image:url(img/'.$zdjecia[0].');"></div>
             <div class="auta-info">
                 <h2>'.$tablica['tytul'].'</h2>
@@ -455,22 +455,15 @@ function sprzedaj(){
     $maail->Subject = "Nowe ogłoszenie sprzedaży"; /* Tytuł wiadomości */
     $maail->Body = 
     '
-    <style>
-    h2{
-    color: #c4b45b;
-    font-size: 28px;
-    text-align: center;
-    }
-    </style>
+    <div style="background-color:#7e7e7e;">
+    <h2 style="color:#c4b45b;">Użytkownik '.$_SESSION['login'].' wysłał nową ofertę sprzedaży.</h2><br>
+    <h4>Szczegóły oferty:</h4><br>
+    <b>Samochód:</b> '.$_POST['marka'].' '.$_POST['model'].'<br>
+    <b>Moc:</b> '.$_POST['moc'].' Rok: '.$_POST['rok'].'<br>
+    <b>Pojemność:</b> '.$_POST['pojemnosc'].'<br>
+    <h3>Proponowana cena'.$_POST['cenka'].' PLN</>
+    </div>
     
-    
-    
-    <h2>Użytkownik '.$_SESSION['login'].' wysłał nową ofertę sprzedaży.</h2><br>
-    Szczegóły oferty:<br>
-    Marka: '.$_POST['marka'].' '.$_POST['model'].'<br>
-    Moc: '.$_POST['moc'].' Rok: '.$_POST['rok'].'<br>
-    Pojemność: '.$_POST['pojemnosc'].'<br>
-    <b>'.$_POST['cenka'].' PLN</b>
     ';
 
     if(!$maail->Send()) {
@@ -479,5 +472,68 @@ function sprzedaj(){
         return '<span id="dobre">Wiadomość została wysłana. Skontaktujemy się z tobą wkrótce.</span>';
     }
 }
+function szczegoly(){
+    if(isset($_GET['auto'])){
+        $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+        $tablica=$conn->query('SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel, kolor.id_koloru, kolor.kolor as rkolor, pochodzenie.id_kraju, pochodzenie.kraj AS rpochodzenie, stan.id_stanu, stan.stan_auta as rstan FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model INNER JOIN kolor ON kolor.id_koloru=samochody.kolor INNER JOIN pochodzenie ON pochodzenie.id_kraju=samochody.pochodzenie INNER JOIN stan ON stan.id_stanu=samochody.stan where id_samochodu="'.$_GET['auto'].'"');
+        $w=$tablica->fetch_assoc();
+        $zdjecia=explode(';', $w['foto']);
+        echo '
+        <div class="kontener">
+            <div class="zdjecia">
+                <div class="zdjecie1" style="background-image: url(img/'.$zdjecia[0].');">1</div>
+                <div class="zdjecie2" style="background-image: url(img/'.$zdjecia[1].');">1</div>
+                <div class="zdjecie3" style="background-image: url(img/'.$zdjecia[2].');">1</div>
+                <div class="zdjecie4" style="background-image: url(img/'.$zdjecia[3].');">1</div>
+                <div class="zdjecie5" style="background-image: url(img/'.$zdjecia[4].');">1</div>
+            </div>
+            <div class="opis-auta">
+                <h2>'.$w['tytul'].'</h2>
+                <table class="tabelka">
+                    <tr>
+                        <td class="tabela-naglowek">Marka Pojazdu</td>
+                        <td class="tabela-wartosc">'.$w['rmarka'].'</td>
+                    </tr>
+                    <tr>
+                        <td class="tabela-naglowek">Model Pojazdu</td>
+                        <td class="tabela-wartosc">'.$w['rmodel'].'</td>
+                    </tr>
+                    <tr>
+                        <td class="tabela-naglowek">Rok produkcji</td>
+                        <td class="tabela-wartosc">'.$w['rok_produkcji'].'</td>
+                    </tr>
+                    <tr>
+                        <td class="tabela-naglowek">Przebieg</td>
+                        <td class="tabela-wartosc">'.number_format($tablica['przebieg'], 0, '.', ' ').'</td>
+                    </tr>
+                    <tr>
+                        <td class="tabela-naglowek">Pojemność silnika</td>
+                        <td class="tabela-wartosc">'.$w['pojemnosc_silnika'].'</td>
+                    </tr>
+                    <tr>
+                        <td class="tabela-naglowek">Rodzaj paliwa</td>
+                        <td class="tabela-wartosc">'.$w['rpaliwo'].'</td>
+                    </tr>
+                    <tr>
+                        <td class="tabela-naglowek">Moc</td>
+                        <td class="tabela-wartosc">'.$w['moc'].'</td>
+                    </tr>
+                    <tr>
+                        <td class="tabela-naglowek">Kolor</td>
+                        <td class="tabela-wartosc">'.$w['rkolor'].'</td>
+                    </tr>
+                    <tr>
+                        <td class="tabela-naglowek">Pochodzenie</td>
+                        <td class="tabela-wartosc">'.$w['rpochodzenie'].'</td>
+                    </tr>
+                </table>
+                <p>
+                '.$w['opis'].'
+                </p>
+            </div>
 
+        </div>
+        ';
+    }
+}
 ?>
