@@ -62,7 +62,12 @@
         </div>
         <div class="oferty-auta">
             <div class="auta" id="txtHint">
-               <?php filtruj();?>
+               <?php
+               if(isset($_GET['marka'])){
+                echo '<script>indexowa_marka("'.$_GET['marka'].'");</script>';
+               }
+                filtruj();
+                ?>
 	        </div>
         </div>
 
@@ -82,6 +87,10 @@ function filtr(x) {
       }
       xhttp.open("GET", "test.php?"+x);
       xhttp.send();
+}
+function indexowa_marka(x){
+    document.getElementById('filter-marka').value='"'+x+'"';
+    modele();
 }
 function modele(){
     if(document.getElementById('filter-marka').value!=""){
