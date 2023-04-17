@@ -534,6 +534,8 @@ function szczegoly(){
 
         </div>
         ';
+    }else{
+        echo 'błąd';
     }
 }
 ?>
