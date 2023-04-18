@@ -158,7 +158,7 @@ function rejestracja($login, $mail, $haslo, $powtorz_haslo){
             '
             <div style="background-color:#363636; text-align:center; border-radius:15px; color:#ffff; padding:20px 40px 100px 40px">
                 <h2 style="color:#ffff; text-align:center; border-bottom: 3px solid #c4b45b; font-size:26px;">Dziekujemy za utworzenie konta w naszym serwisie.</h2><br>
-                 Aby potwierdzić rejestrację kliknij w link poniżej:<br><br> <b>158.101.171.163/logowanie.php?p='.$kod.'</b> <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                 Aby potwierdzić rejestrację kliknij w link poniżej:<br><br> <b>158.101.171.163/logowanie.php?p='.$kod.'</b> <br><br><br><br><br><br><br><br><br><br><br><br>
             
             '
             ;
@@ -511,7 +511,7 @@ function szczegoly(){
                     </tr>
                     <tr>
                         <td class="tabela-naglowek">Przebieg</td>
-                        <td class="tabela-wartosc">'.number_format($tablica['przebieg'], 0, '.', ' ').'</td>
+                        <td class="tabela-wartosc">'.number_format($w['przebieg'], 0, '.', ' ').'</td>
                     </tr>
                     <tr>
                         <td class="tabela-naglowek">Pojemność silnika</td>
