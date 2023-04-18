@@ -538,7 +538,7 @@ function szczegoly(){
                     </tr>
                     <tr>
                         <td class="tabela-naglowek">Cena</td>
-                        <td class="tabela-wartosc" style="color:#a31a1a;">'.$w['cena'].' zł</td>
+                        <td class="tabela-wartosc" style="color:#a31a1a;">'.number_format($w['cena'], 0, '.', ' ').' zł</td>
                     </tr>
                 </table>
                 <p>
