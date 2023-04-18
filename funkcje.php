@@ -488,11 +488,11 @@ function szczegoly(){
         return '
         <div class="kontener">
             <div class="zdjecia">
-                <div class="zdjecie1" style="background-image: url(img/'.$zdjecia[0].');">1</div>
-                <div class="zdjecie2" style="background-image: url(img/'.$zdjecia[1].');">1</div>
-                <div class="zdjecie3" style="background-image: url(img/'.$zdjecia[2].');">1</div>
-                <div class="zdjecie4" style="background-image: url(img/'.$zdjecia[3].');">1</div>
-                <div class="zdjecie5" style="background-image: url(img/'.$zdjecia[4].');">1</div>
+                <div class="zdjecie1 active" style="background-image: url(img/'.$zdjecia[0].');"></div>
+                <div class="zdjecie2 image-item" style="background-image: url(img/'.$zdjecia[1].');"></div>
+                <div class="zdjecie3 image-item" style="background-image: url(img/'.$zdjecia[2].');"></div>
+                <div class="zdjecie4 image-item" style="background-image: url(img/'.$zdjecia[3].');"></div>
+                <div class="zdjecie5 image-item" style="background-image: url(img/'.$zdjecia[4].');"></div>
             </div>
             <div class="opis-auta">
                 <h2>'.$w['tytul'].'</h2>
