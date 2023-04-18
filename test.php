@@ -5,4 +5,8 @@ if(isset($_GET['marka'])){
 }elseif(isset($_GET['model'])){
     modele();
 }
+elseif(isset($_GET['logout'])){
+    logout();
+    header('Location: index.php');
+}
 ?>

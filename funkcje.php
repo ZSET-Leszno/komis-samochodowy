@@ -17,7 +17,7 @@ function generator(){
 }
 function navbar(){
     if(isset($_SESSION['id'])){
-        $przycisk='<a href="logowanie.php">'.$_SESSION['login'].'</a>';
+        $przycisk='<a href="logowanie.php">'.$_SESSION['login'].'</a><li><a href="test.php?logout=1"><i class="fa-sharp fa-solid fa-right-from-bracket fa-bounce"></i></a></li>';
         $sell='<li><a href="sprzedaj.php">Sprzedaj</a></li>';
     }
     else{
@@ -37,7 +37,6 @@ function navbar(){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
         <link rel="icon" type="image/x-icon" href="favicon.png">
         <script src="https://kit.fontawesome.com/6614aa0530.js" crossorigin="anonymous"></script>
-
     </head>
     
     <body>
@@ -488,11 +487,11 @@ function szczegoly(){
         return '
         <div class="kontener">
             <div class="zdjecia">
-                <div class="zdjecie1 active" style="background-image: url(img/'.$zdjecia[0].');"></div>
-                <div class="zdjecie2 image-item" style="background-image: url(img/'.$zdjecia[1].');"></div>
-                <div class="zdjecie3 image-item" style="background-image: url(img/'.$zdjecia[2].');"></div>
-                <div class="zdjecie4 image-item" style="background-image: url(img/'.$zdjecia[3].');"></div>
-                <div class="zdjecie5 image-item" style="background-image: url(img/'.$zdjecia[4].');"></div>
+                <div class="zdjecie1 " id="glowne" style="background-image: url(img/'.$zdjecia[0].');"></div>
+                <div class="zdjecie2 " onclick="zmiana(\'dwa\');" id="dwa" style="background-image: url(img/'.$zdjecia[1].');"></div>
+                <div class="zdjecie3 " onclick="zmiana(\'trzy\');" id="trzy" style="background-image: url(img/'.$zdjecia[2].');"></div>
+                <div class="zdjecie4 " onclick="zmiana(\'cztery\');" id="cztery" style="background-image: url(img/'.$zdjecia[3].');"></div>
+                <div class="zdjecie5 " onclick="zmiana(\'piec\');" id="piec" style="background-image: url(img/'.$zdjecia[4].');"></div>
             </div>
             <div class="opis-auta">
                 <h2>'.$w['tytul'].'</h2>
@@ -533,6 +532,14 @@ function szczegoly(){
                         <td class="tabela-naglowek">Pochodzenie</td>
                         <td class="tabela-wartosc">'.$w['rpochodzenie'].'</td>
                     </tr>
+                    <tr>
+                        <td class="tabela-naglowek">------</td>
+                        <td class="tabela-wartosc">------</td>
+                    </tr>
+                    <tr>
+                        <td class="tabela-naglowek">Cena</td>
+                        <td class="tabela-wartosc" style="color:#a31a1a;">'.$w['cena'].' zł</td>
+                    </tr>
                 </table>
                 <p>
                 '.$w['opis'].'
@@ -543,5 +550,91 @@ function szczegoly(){
     }else{
         return 'błąd';
     }
+}
+function proponowane(){
+    $conn=new mysqli('localhost', $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
+    $wynik=$conn->query('SELECT *, marka.id_marki, marka.nazwa as rmarka, paliwo.id, paliwo.rodzaj_paliwa as rpaliwo, model.id_modelu, model.nazwa as rmodel FROM samochody INNER JOIN marka ON marka.id_marki=samochody.marka INNER JOIN paliwo ON paliwo.id=samochody.rodzaj_paliwa INNER JOIN model ON model.id_modelu=samochody.model order by rand() limit 4;');
+    $wynik->fetch_assoc();
+    $i=1;
+    foreach($wynik as $w){
+        $zdj=explode(";", $w['foto']);
+        if($i==4){
+            echo '
+            <div class="auta-card ostatni" onclick="location.href = \'auto-szczegoly.php?auto='.$w['id_samochodu'].'\'">
+                <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
+                <div class="auta-info">
+                    <h2>'.$w['tytul'].'</h2>
+                    <section>
+                        <ul>
+                            <li><span>'.$w['rok_produkcji'].'</span></li>
+                            <li><span>'.number_format($w['przebieg'], 0, '.', ' ').' km</span></li>
+                        </ul>
+                        <ul>
+                            <li><span>'.$w['rpaliwo'].'</span></li>
+                            <li><span>'.$w['pojemnosc_silnika'].' cm3</span></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="auto-cena">
+                    <p>'.number_format($w['cena'], 0, '.', ' ').' zł</p>
+                </div>
+            </div>
+            ';
+            $i++;
+        }
+        elseif($i==3){
+            echo '
+            <div class="auta-card przedostatni" onclick="location.href = \'auto-szczegoly.php?auto='.$w['id_samochodu'].'\'">
+                <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
+                <div class="auta-info">
+                    <h2>'.$w['tytul'].'</h2>
+                    <section>
+                        <ul>
+                            <li><span>'.$w['rok_produkcji'].'</span></li>
+                            <li><span>'.number_format($w['przebieg'], 0, '.', ' ').' km</span></li>
+                        </ul>
+                        <ul>
+                            <li><span>'.$w['rpaliwo'].'</span></li>
+                            <li><span>'.$w['pojemnosc_silnika'].' cm3</span></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="auto-cena">
+                    <p>'.number_format($w['cena'], 0, '.', ' ').' zł</p>
+                </div>
+            </div>
+            ';
+            $i++;
+        }
+        else{
+            $zdj=explode(";", $w['foto']);
+            echo '
+            <div class="auta-card" onclick="location.href = \'auto-szczegoly.php?auto='.$w['id_samochodu'].'\'">
+                <div class="auta-image" style="background-image:url(img/'.$zdj[0].');"></div>
+                <div class="auta-info">
+                    <h2>'.$w['tytul'].'</h2>
+                    <section>
+                        <ul>
+                            <li><span>'.$w['rok_produkcji'].'</span></li>
+                            <li><span>'.number_format($w['przebieg'], 0, '.', ' ').' km</span></li>
+                        </ul>
+                        <ul>
+                            <li><span>'.$w['rpaliwo'].'</span></li>
+                            <li><span>'.$w['pojemnosc_silnika'].' cm3</span></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="auto-cena">
+                    <p>'.number_format($w['cena'], 0, '.', ' ').' zł</p>
+                </div>
+            </div>
+            ';
+            $i++;
+        }
+    }
+    $conn->close();
+}
+function logout(){
+    session_unset();
 }
 ?>
